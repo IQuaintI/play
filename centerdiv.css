@@ -1,0 +1,19 @@
+.container{
+   background-color: aquamarine; 
+   height: 500px;
+   width: 500px;
+   border: 2px solid black;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.item{
+    background-color: red;
+    color: black;
+    height: 200px;
+    width: 200px;
+    border: 2px solid black;
+    font-weight: bold;
+    text-align: center;
+}

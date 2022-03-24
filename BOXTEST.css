@@ -1,0 +1,20 @@
+
+  .container{
+    background: lightblue;
+    display: flex;
+    border: 2px solid red;
+    padding: 100px;
+  }
+
+  .container div{
+      background: purple;
+      border: 2px solid white;
+      height: 100px;
+      padding: 20px;
+      flex: 1 1 0%;
+}
+
+  .container .one{
+      background-color: aqua;
+      flex: 3 1 0%;
+  }
