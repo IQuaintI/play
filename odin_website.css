@@ -1,3 +1,6 @@
+_*{
+    box-sizing: border-box;
+}
 header{
     display: flex;
     background-color: #1f2937;
@@ -68,3 +71,4 @@ a:active{
     display: flex;
     margin-left: 1200px;
     margin-bottom: 200px;
+}
