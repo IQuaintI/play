@@ -1,6 +1,8 @@
 .ad{
-    max-width: 100%;
-    height: auto;
+    max-width: 75%;
+    height: 75%;
+    margin-left: 30px;
+    background-size: cover;
 }
 
 body{
@@ -13,43 +15,60 @@ body{
     width: auto;
     justify-content: space-around;
     flex-direction: row;
+    font-size: 18px;
+    color: #e5e7eb;
 }
 
 .stitch{
-    display:flex;
+    display:block;
     background: #1F2937;
-    height: 300px;
+    height: 470px;
     width: 50%;
     float: left;
     color: white;
+    justify-content: space-around;
 }
 
 .stich-image{
     display: flex;
     background: #1F2937;
     width: 50%;
-    height: 300px;
+    height: 470px;
     float: right;
+    background-size: cover;
 }
 
 .slogan{
     height: fit-content;
     width: fit-content;
-    margin-top:0;
+    margin-top: 30px;
     border: 2px solid yellow;
-    
+    margin-left: 180px;
+    font-size: 48px;
+    font-weight: bolder;
+    color: #f9faf8;
 }
 
 .pitch{
     height: fit-content;
     width: fit-content;
     border: 2px solid yellow;
+    margin-left: 180px;
+    font-size: 18px;
+    color: #e5e7eb;
+    
 }
 
 .button{
     height: fit-content;
     width: fit-content;
     border: 2px solid yellow;
+    margin-left: 180px;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: #3882F6;
+    color: white;
 }
 
 .logo{
