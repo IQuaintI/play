@@ -3,6 +3,7 @@
     height: 75%;
     margin-left: 30px;
     background-size: cover;
+    margin-bottom: 5%;
 }
 
 body{
@@ -11,39 +12,34 @@ body{
 .header-container{
     display: flex;
     background:#1F2937;
-    height:fit-content;
-    width: auto;
-    justify-content: space-around;
+    height: fit-content;
     flex-direction: row;
     font-size: 18px;
     color: #e5e7eb;
+    justify-content: space-evenly;
 }
-
 .stitch{
-    display:block;
-    background: #1F2937;
-    height: 470px;
-    width: 50%;
+    display: flex;
+    flex-direction: column;
+    background-color: #1F2937;
     float: left;
-    color: white;
-    justify-content: space-around;
+    height: 400px;
+    width: 50%;
+    align-items: center;
 }
-
 .stich-image{
     display: flex;
     background: #1F2937;
     width: 50%;
-    height: 470px;
+    height: 400px;
     float: right;
-    background-size: cover;
+    justify-content: center;
+    align-items: center;
 }
 
 .slogan{
     height: fit-content;
     width: fit-content;
-    margin-top: 30px;
-    border: 2px solid yellow;
-    margin-left: 180px;
     font-size: 48px;
     font-weight: bolder;
     color: #f9faf8;
@@ -52,34 +48,34 @@ body{
 .pitch{
     height: fit-content;
     width: fit-content;
-    border: 2px solid yellow;
-    margin-left: 180px;
     font-size: 18px;
     color: #e5e7eb;
-    
+    margin-right: 9%;
 }
 
 .button{
-    height: fit-content;
-    width: fit-content;
-    border: 2px solid yellow;
-    margin-left: 180px;
     border-radius: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
     background: #3882F6;
     color: white;
+    padding:3px 15px 3px 15px;
+    border: #3882F6;
 }
 
 .logo{
     color: white;
-    border: 2px solid yellow;
+    height: fit-content;
+    width: fit-content;
+    font-size: 24px;
+    color:#f9faf8;
+    margin-right: 28%;
+    
 }
 
 .links{
     display: flex;
-    border: 2px solid yellow;
     gap:20px;
+    background:#1F2937;
+    justify-content: center;
 }
 
 a:link{
