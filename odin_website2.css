@@ -25,7 +25,6 @@ body{
     float: left;
     height: 400px;
     width: 50%;
-    align-items: center;
 }
 .stich-image{
     display: flex;
@@ -43,6 +42,7 @@ body{
     font-size: 48px;
     font-weight: bolder;
     color: #f9faf8;
+    align-self: center;
 }
 
 .pitch{
@@ -51,6 +51,8 @@ body{
     font-size: 18px;
     color: #e5e7eb;
     margin-right: 9%;
+    margin-bottom: 50px;
+    align-self: center;
 }
 
 .button{
@@ -76,6 +78,13 @@ body{
     gap:20px;
     background:#1F2937;
     justify-content: center;
+    margin-top: 1%;
+}
+
+.sign{
+    display: flex;
+    align-self: center;
+    margin-right: 53%;
 }
 
 a:link{
