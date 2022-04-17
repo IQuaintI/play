@@ -1,108 +1,150 @@
-.ad{
-    max-width: 75%;
-    height: 75%;
-    margin-left: 30px;
-    background-size: cover;
-    margin-bottom: 5%;
+.ad {
+  background-size: cover;
+  margin-bottom: 5%;
+  margin-right: 5%;
+  overflow: hidden;
 }
 
-body{
-    margin: 0px;
+body {
+  margin: 0px;
 }
-.header-container{
-    display: flex;
-    background:#1F2937;
-    height: fit-content;
-    flex-direction: row;
-    font-size: 18px;
-    color: #e5e7eb;
-    justify-content: space-evenly;
+
+.center-header{
+display: flex;
+height: fit-content;
+width: 100%;
+justify-content: center;
 }
-.stitch{
+
+.center-slogan{
+    font-weight: bold;
+    color: #1f2937;
+}
+
+.center-stitch{
     display: flex;
-    flex-direction: column;
-    background-color: #1F2937;
-    float: left;
     height: 400px;
-    width: 50%;
+    width: 100%;
 }
-.stich-image{
-    display: flex;
-    background: #1F2937;
-    width: 50%;
-    height: 400px;
-    float: right;
-    justify-content: center;
-    align-items: center;
+.options{
+  display: flex;
+  height: fit-content;
+  width:100%;
+  justify-content: space-around;
 }
 
-.slogan{
-    height: fit-content;
-    width: fit-content;
-    font-size: 48px;
-    font-weight: bolder;
-    color: #f9faf8;
-    align-self: center;
+.header-container {
+  background: #1f2937;
+  color: #e5e7eb;
+  display: flex;
+  flex-direction: row;
+  font-size: 18px;
+  height: fit-content;
+  justify-content: space-evenly;
+}
+.stitch {
+  background-color: #1f2937;
+  display: flex;
+  flex-direction: column;
+  float: left;
+  height: 400px;
+  width: 50%;
+}
+.stich-image {
+  align-items: center;
+  background: #1f2937;
+  display: flex;
+  float: right;
+  height: 400px;
+  justify-content: center;
+  width: 50%;
 }
 
-.pitch{
-    height: fit-content;
-    width: fit-content;
-    font-size: 18px;
-    color: #e5e7eb;
-    margin-right: 9%;
-    margin-bottom: 50px;
-    align-self: center;
+.slogan {
+  align-self: center;
+  color: #f9faf8;
+  font-size: 48px;
+  font-weight: bolder;
+  height: fit-content;
+  width: fit-content;
 }
 
-.button{
-    border-radius: 5px;
-    background: #3882F6;
-    color: white;
-    padding:3px 15px 3px 15px;
-    border: #3882F6;
+.sports-car{
+    border: 5px solid #3882f6;
+    border-radius: 15px;
+}
+.model-t{
+  border:5px solid #3882f6;
+  border-radius: 15px;
 }
 
-.logo{
-    color: white;
-    height: fit-content;
-    width: fit-content;
-    font-size: 24px;
-    color:#f9faf8;
-    margin-right: 28%;
-    
+.castle-forest{
+  border: 5px solid #3882f6;
+  border-radius: 15px;
 }
 
-.links{
-    display: flex;
-    gap:20px;
-    background:#1F2937;
-    justify-content: center;
-    margin-top: 1%;
+.castle-hotel{
+  border:5px solid #3882f6;
+  border-radius: 15px;
+}
+.pitch {
+  align-self: center;
+  color: #e5e7eb;
+  font-size: 18px;
+  height: fit-content;
+  margin-bottom: 50px;
+  margin-right: 9%;
+  width: fit-content;
 }
 
-.sign{
-    display: flex;
-    align-self: center;
-    margin-right: 53%;
+.button {
+  background: #3882f6;
+  border-radius: 5px;
+  border: #3882f6;
+  color: white;
+  padding: 3px 15px 3px 15px;
 }
 
-a:link{
-    color: white;
-    text-decoration: none;
+.logo {
+  color: white;
+  color: #f9faf8;
+  font-size: 24px;
+  height: fit-content;
+  margin-right: 28%;
+  width: fit-content;
 }
 
-a:visited{
-    color: white;
-    text-decoration: none;
+.links {
+  background: #1f2937;
+  display: flex;
+  gap: 20px;
+  height: fit-content;
+  justify-content: center;
+  margin-top: 1%;
 }
 
-a:hover{
-    color:pink;
-    text-decoration: none;
+.sign {
+  align-self: center;
+  display: flex;
+  margin-right: 53%;
 }
 
-a:active{
-    color:pink;
-    text-decoration: none;
+a:link {
+  color: white;
+  text-decoration: none;
+}
+
+a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: pink;
+  text-decoration: none;
+}
+
+a:active {
+  color: pink;
+  text-decoration: none;
 }
