@@ -9,28 +9,41 @@ body {
   margin: 0px;
 }
 
+.button2{
+  background: #3882f6;
+  border-radius: 7px;
+  border: #3882f6;
+  color: white;
+  padding: 3px 25px 3px 25px;
+  border: 2px solid white;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-size: 20px;
+}
+
 .center-header{
 display: flex;
 height: fit-content;
-width: 100%;
 justify-content: center;
+width: 100%;
 }
 
 .center-slogan{
-    font-weight: bold;
     color: #1f2937;
-}
+    font-weight: bold;
+  }
 
 .center-stitch{
     display: flex;
-    height: 400px;
+    height: fit-content;
     width: 100%;
-}
+  }
 .options{
   display: flex;
   height: fit-content;
-  width:100%;
   justify-content: space-around;
+  width:100%;
 }
 
 .header-container {
@@ -70,22 +83,26 @@ justify-content: center;
 }
 
 .sports-car{
-    border: 5px solid #3882f6;
     border-radius: 15px;
-}
+    border: 5px solid #3882f6;
+    overflow: hidden;
+  }
 .model-t{
-  border:5px solid #3882f6;
   border-radius: 15px;
+  border:5px solid #3882f6;
+  overflow: hidden;
 }
 
 .castle-forest{
-  border: 5px solid #3882f6;
   border-radius: 15px;
+  border: 5px solid #3882f6;
+  overflow: hidden;
 }
 
 .castle-hotel{
-  border:5px solid #3882f6;
   border-radius: 15px;
+  border:5px solid #3882f6;
+  overflow: hidden;
 }
 .pitch {
   align-self: center;
@@ -106,8 +123,8 @@ justify-content: center;
 }
 
 .logo {
-  color: white;
   color: #f9faf8;
+  color: white;
   font-size: 24px;
   height: fit-content;
   margin-right: 28%;
@@ -129,6 +146,42 @@ justify-content: center;
   margin-right: 53%;
 }
 
+.subtext{
+  display: flex;
+  height: 200px;
+  width: 100%;
+  justify-content: space-around;
+ }
+
+.quote-space{
+  height: 400px;
+  width: 100%;
+  background: #e5e7eb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quote{
+  font-style: italic;
+}
+
+ .sports-sub{
+   margin-left: 5%;
+ }
+
+ .model-sub{
+   margin-left: 7%;
+ }
+
+ .forest-sub{
+   margin-left:1%;
+ }
+
+ .hotel-sub{
+   margin-right:2%;
+ }
+
 a:link {
   color: white;
   text-decoration: none;
@@ -147,4 +200,56 @@ a:hover {
 a:active {
   color: pink;
   text-decoration: none;
+}
+
+.footer{
+  height: 400px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-box{
+  height:40%;
+  width: 60%;
+  background-color: #3882f6;
+  border-radius: 10px 0px 0px 10px;
+  color: white;
+  float: left;
+}
+
+.footer-button{
+  height: 40%;
+  width:20%;
+  background-color: #3882f6;
+  border-radius: 0px 10px 10px 0px;
+  color: white;
+  float: right;
+}
+
+.cross{
+  text-decoration: line-through black;
+  width: fit-content;
+  max-width: fit-content;
+}
+
+.footer-slogan{
+  margin-left: 10%;
+  margin-top: 7%;
+  margin-bottom: 0;
+}
+.footer-sell{
+  margin-top: 0;
+  margin-left: 10%;
+  width: fit-content;
+  max-width: fit-content;
+}
+
+.footer-sign{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin-top: 27%;
+  margin-right: 40%;
 }
