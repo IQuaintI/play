@@ -1,3 +1,23 @@
+a:active {
+  color: pink;
+  text-decoration: none;
+}
+
+a:hover {
+  color: pink;
+  text-decoration: none;
+}
+
+a:link {
+  color: white;
+  text-decoration: none;
+}
+
+a:visited {
+  color: white;
+  text-decoration: none;
+}
+
 .ad {
   background-size: cover;
   margin-bottom: 5%;
@@ -9,41 +29,124 @@ body {
   margin: 0px;
 }
 
-.button2{
+.bottom {
+  background-color: #1f2937;
+  display: flex;
+  height: 100px;
+  justify-content: center;
+  width: 100%;
+}
+
+.button {
+  background: #3882f6;
+  border-radius: 5px;
+  border: #3882f6;
+  color: white;
+  padding: 3px 15px 3px 15px;
+}
+
+.button2 {
+  align-items: center;
   background: #3882f6;
   border-radius: 7px;
   border: #3882f6;
-  color: white;
-  padding: 3px 25px 3px 25px;
   border: 2px solid white;
-  justify-content: center;
-  align-items: center;
+  color: white;
   display: flex;
   font-size: 20px;
+  justify-content: center;
+  padding: 3px 25px 3px 25px;
 }
 
-.center-header{
-display: flex;
-height: fit-content;
-justify-content: center;
-width: 100%;
+.castle-forest {
+  border-radius: 15px;
+  border: 5px solid #3882f6;
+  overflow: hidden;
 }
 
-.center-slogan{
-    color: #1f2937;
-    font-weight: bold;
-  }
+.castle-hotel {
+  border-radius: 15px;
+  border: 5px solid #3882f6;
+  overflow: hidden;
+}
 
-.center-stitch{
-    display: flex;
-    height: fit-content;
-    width: 100%;
-  }
-.options{
+.center-header {
   display: flex;
   height: fit-content;
-  justify-content: space-around;
-  width:100%;
+  justify-content: center;
+  width: 100%;
+}
+
+.center-slogan {
+  color: #1f2937;
+  font-weight: bold;
+}
+
+.center-stitch {
+  display: flex;
+  height: fit-content;
+  width: 100%;
+}
+
+.copyright {
+  color: white;
+}
+
+.cross {
+  max-width: fit-content;
+  text-decoration: line-through black;
+  width: fit-content;
+}
+
+.forest-sub {
+  margin-left: 1%;
+}
+
+.footer {
+  align-items: center;
+  display: flex;
+  height: 400px;
+  justify-content: center;
+  width: 100%;
+}
+
+.footer-box {
+  background-color: #3882f6;
+  border-radius: 10px 0px 0px 10px;
+  color: white;
+  float: left;
+  height: 40%;
+  width: 60%;
+}
+
+.footer-button {
+  background-color: #3882f6;
+  border-radius: 0px 10px 10px 0px;
+  color: white;
+  float: right;
+  height: 40%;
+  width: 20%;
+}
+
+.footer-sell {
+  margin-left: 10%;
+  margin-top: 0;
+  max-width: fit-content;
+  width: fit-content;
+}
+
+.footer-slogan {
+  margin-bottom: 0;
+  margin-left: 10%;
+  margin-top: 7%;
+}
+
+.footer-sign {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-right: 40%;
+  margin-top: 27%;
 }
 
 .header-container {
@@ -55,6 +158,75 @@ width: 100%;
   height: fit-content;
   justify-content: space-evenly;
 }
+
+.hotel-sub {
+  margin-right: 2%;
+}
+
+.links {
+  background: #1f2937;
+  display: flex;
+  gap: 20px;
+  height: fit-content;
+  justify-content: center;
+  margin-top: 1%;
+}
+
+.logo {
+  color: #f9faf8;
+  color: white;
+  font-size: 24px;
+  height: fit-content;
+  margin-right: 28%;
+  width: fit-content;
+}
+
+.model-sub {
+  margin-left: 7%;
+}
+
+.model-t {
+  border-radius: 15px;
+  border: 5px solid #3882f6;
+  overflow: hidden;
+}
+
+.options {
+  display: flex;
+  height: fit-content;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.pitch {
+  align-self: center;
+  color: #e5e7eb;
+  font-size: 18px;
+  height: fit-content;
+  margin-bottom: 50px;
+  margin-right: 9%;
+  width: fit-content;
+}
+
+.slogan {
+  align-self: center;
+  color: #f9faf8;
+  font-size: 48px;
+  font-weight: bolder;
+  height: fit-content;
+  width: fit-content;
+}
+
+.sports-car {
+  border-radius: 15px;
+  border: 5px solid #3882f6;
+  overflow: hidden;
+}
+
+.sports-sub {
+  margin-left: 5%;
+}
+
 .stitch {
   background-color: #1f2937;
   display: flex;
@@ -73,183 +245,28 @@ width: 100%;
   width: 50%;
 }
 
-.slogan {
-  align-self: center;
-  color: #f9faf8;
-  font-size: 48px;
-  font-weight: bolder;
-  height: fit-content;
-  width: fit-content;
-}
-
-.sports-car{
-    border-radius: 15px;
-    border: 5px solid #3882f6;
-    overflow: hidden;
-  }
-.model-t{
-  border-radius: 15px;
-  border:5px solid #3882f6;
-  overflow: hidden;
-}
-
-.castle-forest{
-  border-radius: 15px;
-  border: 5px solid #3882f6;
-  overflow: hidden;
-}
-
-.castle-hotel{
-  border-radius: 15px;
-  border:5px solid #3882f6;
-  overflow: hidden;
-}
-.pitch {
-  align-self: center;
-  color: #e5e7eb;
-  font-size: 18px;
-  height: fit-content;
-  margin-bottom: 50px;
-  margin-right: 9%;
-  width: fit-content;
-}
-
-.button {
-  background: #3882f6;
-  border-radius: 5px;
-  border: #3882f6;
-  color: white;
-  padding: 3px 15px 3px 15px;
-}
-
-.logo {
-  color: #f9faf8;
-  color: white;
-  font-size: 24px;
-  height: fit-content;
-  margin-right: 28%;
-  width: fit-content;
-}
-
-.links {
-  background: #1f2937;
-  display: flex;
-  gap: 20px;
-  height: fit-content;
-  justify-content: center;
-  margin-top: 1%;
-}
-
 .sign {
   align-self: center;
   display: flex;
   margin-right: 53%;
 }
 
-.subtext{
+.subtext {
   display: flex;
   height: 200px;
-  width: 100%;
   justify-content: space-around;
- }
-
-.quote-space{
-  height: 400px;
   width: 100%;
-  background: #e5e7eb;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-.quote{
+.quote {
   font-style: italic;
 }
 
- .sports-sub{
-   margin-left: 5%;
- }
-
- .model-sub{
-   margin-left: 7%;
- }
-
- .forest-sub{
-   margin-left:1%;
- }
-
- .hotel-sub{
-   margin-right:2%;
- }
-
-a:link {
-  color: white;
-  text-decoration: none;
-}
-
-a:visited {
-  color: white;
-  text-decoration: none;
-}
-
-a:hover {
-  color: pink;
-  text-decoration: none;
-}
-
-a:active {
-  color: pink;
-  text-decoration: none;
-}
-
-.footer{
+.quote-space {
+  align-items: center;
+  background: #e5e7eb;
+  display: flex;
   height: 400px;
+  justify-content: center;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.footer-box{
-  height:40%;
-  width: 60%;
-  background-color: #3882f6;
-  border-radius: 10px 0px 0px 10px;
-  color: white;
-  float: left;
-}
-
-.footer-button{
-  height: 40%;
-  width:20%;
-  background-color: #3882f6;
-  border-radius: 0px 10px 10px 0px;
-  color: white;
-  float: right;
-}
-
-.cross{
-  text-decoration: line-through black;
-  width: fit-content;
-  max-width: fit-content;
-}
-
-.footer-slogan{
-  margin-left: 10%;
-  margin-top: 7%;
-  margin-bottom: 0;
-}
-.footer-sell{
-  margin-top: 0;
-  margin-left: 10%;
-  width: fit-content;
-  max-width: fit-content;
-}
-
-.footer-sign{
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  margin-top: 27%;
-  margin-right: 40%;
 }
