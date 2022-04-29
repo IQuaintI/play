@@ -139,5 +139,57 @@
         document.getElementById("tests").innerHTML = zz;
       </script>
     </div>
+
+    <div>
+      <h2>The following is:</h2>
+      <p id="ff"></p>
+      <script>
+        let ff = 12 !== 13;
+        console.log(12 === 13);
+        console.log(12 !== 13);
+        document.getElementById("ff").innerHTML = ff;
+      </script>
+    </div>
+
+    <div>
+      <h2>practice</h2>
+      <p id="as"></p>
+      <script>
+        let gf = 32;
+        let bf = 32;
+        let as = gf === bf;
+        document.getElementById("as").innerHTML = as;
+      </script>
+    </div>
+
+    <div>
+      <h2>Remainder</h2>
+      <p id="remain"></p>
+      <script>
+        let aab = 8 % 3;
+        document.getElementById("remain").innerHTML = aab;
+      </script>
+    </div>
+
+    <div>
+      <h2>Exponentation</h2>
+      <p id="expo"></p>
+      <script>
+        let aac = 9 ** (1 / 3);
+        document.getElementById("expo").innerHTML = aac;
+      </script>
+    </div>
+
+    <div>
+      <h2>Numeric Conversion</h2>
+      <button onclick="unary()">Test</button>
+      <script>
+        let banana = "2";
+        let plum = "3";
+        function unary() {
+          alert(+banana + +plum);
+        }
+      </script>
+    </div>
   </body>
 </html>
