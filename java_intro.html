@@ -184,11 +184,81 @@
       <h2>Numeric Conversion</h2>
       <button onclick="unary()">Test</button>
       <script>
-        let banana = "2";
+        let banana = "3";
         let plum = "3";
         function unary() {
           alert(+banana + +plum);
         }
+      </script>
+    </div>
+
+    <div>
+      <h2>Increments</h2>
+      <button onclick="increment()">Test</button>
+      <script>
+        let counter = 2;
+        counter--;
+        function increment() {
+          alert(counter);
+        }
+      </script>
+    </div>
+
+    <div>
+      <h2>Comma</h2>
+      <button onclick="comma()">Test</button>
+      <script>
+        let trigger = (1 + 2, 1 + 4);
+        function comma() {
+          alert(trigger);
+        }
+      </script>
+    </div>
+
+    <div>
+      <h2>Embed</h2>
+      <button onclick="embed()">Test</button>
+      <button onclick="embed2()">Test</button>
+      <button onclick="embed3()">Test</button>
+      <script>
+        let trap = "Jack";
+        let jack = "Trap";
+        function embed() {
+          alert(`Hello, ${trap}`);
+        }
+        function embed2() {
+          alert(`The answer is ${1 + 2}`);
+        }
+        function embed3() {
+          alert(`My name is ${jack}`);
+        }
+      </script>
+
+      <div>
+        <h2>What is the youngest desert?</h2>
+        <p id="print"></p>
+      </div>
+      <script>
+        let answer = "march";
+        if (answer === "marvel") {
+          console.log(answer + " is correct");
+        } else {
+          console.log(answer + " is wrong");
+        }
+      </script>
+    </div>
+
+    <div>
+      <input placeholder="Take a Guess"></input>
+      <button id = "luck">Submit</button>
+
+      <script>
+        let right = "Aralkum"
+         if (right === "Aralkum") {
+          console.log(right + " is correct");
+        } else {
+          console.log(right + " is wrong");
+        } 
       </script>
     </div>
   </body>
