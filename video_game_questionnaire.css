@@ -1,0 +1,17 @@
+h1 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
+input[type="checkbox"] {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.inline {
+  display: inline-block;
+  word-break: break-all;
+}
