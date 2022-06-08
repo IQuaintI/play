@@ -11,24 +11,41 @@
     <title>Video Game Questionnare</title>
   </head>
   <body>
-    <h1 id="title">Video Game Questionnaire</h1>
-    <p id="description">Just some qustions about the hobby</p>
+    <!--Header-->
+    <div class="header">
+      <h1 id="title">Video Game Questionnaire</h1>
+      <p id="description">Just some qustions about the hobby</p>
+    </div>
+    <!--Personal Information-->
     <form id="survey-form">
       <fieldset>
         <legend>Tell us about yourself</legend>
         <label id="name-label"
-          >Name: <input id="name" type="text" placeholder="Name" required
+          >Name
+          <input
+            id="name"
+            type="text"
+            placeholder="Name"
+            class="form-control"
+            required
         /></label>
         <label id="email-label"
-          >Email: <input id="email" type="email" placeholder="Email" required
+          >Email
+          <input
+            id="email"
+            type="email"
+            placeholder="Email"
+            class="form-control"
+            required
         /></label>
         <label id="number-label"
-          >Age:
+          >Age
           <input
             id="number"
             type="number"
             min="0"
             max="120"
+            class="form-control"
             placeholder="Pick a Number"
         /></label>
       </fieldset>
@@ -50,53 +67,77 @@
       <fieldset>
         <legend>Do you preorder games?</legend>
         <label id="preorder-yes"
-          >Yes<input name="preorder" type="radio"
+          >Yes<input name="preorder" type="radio" value="radio"
         /></label>
-        <label id="preorder-no">No<input name="preorder" type="radio" /></label>
+        <label id="preorder-no"
+          >No<input name="preorder" type="radio" value="radio"
+        /></label>
       </fieldset>
       <fieldset>
         <legend>What is your favorite genre?</legend>
-        <label
-          ><input
-            type="checkbox"
-            value="RPG"
-            class="inline"
-          />Role-playing</label
-        >
-        <label
-          ><input type="checkbox" value="Horror" class="inline" />Horror</label
-        >
-        <label
-          ><input
-            type="checkbox"
-            value="Action"
-            class="inline"
-          />Action-Adventure</label
-        >
-        <label
-          ><input
-            type="checkbox"
-            value="Shooter"
-            class="inline"
-          />Shooter</label
-        >
-        <label
-          ><input
-            type="checkbox"
-            value="Strategy"
-            class="inline"
-          />Strategy</label
-        >
-        <label><input type="checkbox" value="MMO" class="inline" />MMO</label>
-        <label><input type="checkbox" value="MOBA" class="inline" />MOBA</label>
-        <label
-          ><input
-            type="checkbox"
-            value="Puzzle"
-            class="inline"
-          />Puzzle/Party</label
-        >
-        <label>Other: <input type="text" placeholder="Do tell" /></label>
+        <div>
+          <label
+            ><input
+              type="checkbox"
+              value="RPG"
+              class="inline"
+            />Role-playing</label
+          >
+        </div>
+        <div>
+          <label
+            ><input
+              type="checkbox"
+              value="Horror"
+              class="inline"
+            />Horror</label
+          >
+          <label
+            ><input
+              type="checkbox"
+              value="Action"
+              class="inline"
+            />Action-Adventure</label
+          >
+        </div>
+        <div>
+          <label
+            ><input
+              type="checkbox"
+              value="Shooter"
+              class="inline"
+            />Shooter</label
+          >
+        </div>
+        <div>
+          <label
+            ><input
+              type="checkbox"
+              value="Strategy"
+              class="inline"
+            />Strategy</label
+          >
+        </div>
+        <div>
+          <label><input type="checkbox" value="MMO" class="inline" />MMO</label>
+        </div>
+        <div>
+          <label
+            ><input type="checkbox" value="MOBA" class="inline" />MOBA</label
+          >
+        </div>
+        <div>
+          <label
+            ><input
+              type="checkbox"
+              value="Puzzle"
+              class="inline"
+            />Puzzle/Party</label
+          >
+        </div>
+        <div>
+          <label>Other: <input type="text" placeholder="Do tell" /></label>
+        </div>
       </fieldset>
       <fieldset>
         <legend>Comments</legend>
