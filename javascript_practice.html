@@ -136,6 +136,34 @@
       let unMod = [2, 3, 4, 5];
       unMod.unshift([1]);
       console.log(unMod);
+
+      //Javascript functions//
+      function reusableFunction() {
+        console.log("toes");
+        console.log("n");
+        console.log("toes");
+      }
+      reusableFunction();
+
+      //Passing paramaters with arguments//
+      function parameterValue(a, b) {
+        console.log(a + b);
+        console.log(a - b);
+        console.log(a * b);
+        console.log(a / b);
+      }
+      parameterValue(1, 2);
+
+      //Return a value from function//
+      function returnValue(num) {
+        return num * 2;
+      }
+      let valueAnswer = returnValue(2);
+      console.log(valueAnswer);
+
+      //Variables declared without keywords become Global//
+      oopsGlobal = 1;
+      console.log(oopsGlobal);
     </script>
   </body>
 </html>
