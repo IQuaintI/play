@@ -164,6 +164,46 @@
       //Variables declared without keywords become Global//
       oopsGlobal = 1;
       console.log(oopsGlobal);
+
+      //Local scope and function//
+      function localTest() {
+        console.log("yerd");
+      }
+      localTest();
+
+      //Gloobal vs local scope (local overrides global)//
+      globalTest = "blue";
+
+      function localScopeOverrideTest() {
+        const globalTest = "red";
+      }
+
+      localScopeOverrideTest();
+      //console.log(localScopeOverrideTest);// This is a what
+
+      //Undefined value returned from a function//
+      let sum = 1;
+      function addSum(num) {
+        sum = sum + num;
+      }
+      addSum();
+
+      //Function test//
+      function abc() {
+        console.log("the");
+      }
+      abc();
+
+      //Parameter test//
+      function adb(e, f, g) {
+        console.log(e + f + g);
+        console.log(e + g);
+        console.log(f + g);
+        console.log(e);
+        console.log(f);
+        console.log(g);
+      }
+      adb(1, 2, 3);
     </script>
   </body>
 </html>

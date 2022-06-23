@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript Code Academy</title>
+  </head>
+  <body>
+    <script>
+      //Methods
+      console.log("yeet".toUpperCase()); // Makes things uppercase
+      console.log("YEET".toLowerCase()); // Makes things lowercase
+      console.log(Math.random()); //Random number between 1 and 0
+      console.log(Math.random() * 2); //Random number between 1 and 0 times whatever number
+      console.log(Math.floor(Math.random() * 50)); //Random number is garunteed whole then multiplied by 50
+      console.log(Number.isInteger(2)); //Checks to see if the value is a whole number
+
+      //Const
+      const name = "yeet";
+      console.log(name);
+      // name = "yert"; // This causes error as const cannot be revalued
+
+      //Mathematical Assignment Operators
+      let addUp = 1;
+      let subtractUp = 1;
+      let multiplyUp = 1;
+      let divideUp = 1;
+
+      addUp += 1;
+      subtractUp -= 1;
+      multiplyUp *= 2;
+      divideUp /= 2;
+      console.log(addUp, subtractUp, multiplyUp, divideUp);
+
+      //Increment addition and subtraction
+      let moreMoney = 10;
+      let lessMoney = 10;
+
+      moreMoney++;
+      lessMoney--;
+
+      console.log(moreMoney, lessMoney);
+
+      //String concatenation
+      let favoriteAnimal = "rabbits";
+      console.log("I like " + favoriteAnimal);
+
+      //String Interpolation
+      let myCar = "Toyota";
+      let myHouse = "homeless";
+      console.log(`I drive a ${myCar} and I live in ${myHouse}.`);
+
+      //typeof practice
+      var typeChange = 1;
+      console.log(typeof typeChange);
+      var typeChange = "y";
+      console.log(typeof typeChange);
+
+      //Kelvin weather project
+      const kelvin = 300;
+      let celsius = kelvin - 273;
+      var fahrenheit = celsius * (9 / 5) + 32;
+      fahrenheit = Math.floor(fahrenheit);
+      var newton = celsius * (33 / 100);
+      newton = Math.floor(celsius);
+      console.log(`The temperature is ${fahrenheit} degrees Fahrenheit`);
+      console.log(`The Newtonian temperature is ${newton} degrees Newton`);
+    </script>
+  </body>
+</html>
