@@ -323,14 +323,14 @@
         if (
           userInput === "rock" ||
           userInput === "paper" ||
-          userInput === "scissors"
+          userInput === "scissors" ||
+          userInput === "bomb"
         ) {
           return userInput;
         } else {
           console.log("Try again!");
         }
       };
-      console.log(getUserChoice("rock"));
 
       const getComputerChoice = () => {
         switch (Math.floor(Math.random() * 3)) {
@@ -342,11 +342,13 @@
             return "scissors";
         }
       };
-      console.log(getComputerChoice());
 
       const determineWinner = (getUserChoice, getComputerChoice) => {
         if (getUserChoice === getComputerChoice) {
           return "Tie game!";
+        }
+        if (getUserChoice === "bomb") {
+          return "Your Game Cheater!";
         }
         if (getUserChoice === "rock") {
           if (getComputerChoice === "paper") {
@@ -371,12 +373,8 @@
         }
       };
 
-      console.log(determineWinner("paper", "scissors"));
-      console.log(determineWinner("paper", "rock"));
-      console.log(determineWinner("paper", "paper"));
-
       const playGame = () => {
-        const userChoice = getUserChoice("scissors");
+        const userChoice = getUserChoice("bomb");
         const computerChoice = getComputerChoice();
         console.log(`You threw: ${userChoice}`);
         console.log(`The computer threw: ${computerChoice}`);
