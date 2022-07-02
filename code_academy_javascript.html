@@ -263,6 +263,127 @@
       if (runnerAge === 18) {
         console.log("Please see the registration desk");
       }
+
+      //Function declaration
+      function getGreeting() {
+        console.log("Hello");
+      }
+
+      getGreeting();
+
+      // Parameters and arguments
+      function calculateArea(width, height) {
+        console.log(width * height);
+      }
+      calculateArea(2, 2);
+
+      //Default parameters
+      function sayThanks(name = "customer") {
+        console.log(
+          "Thanks for your purchase " + name + "! We appreciate your business"
+        );
+      }
+      sayThanks("Jack");
+      sayThanks();
+
+      //Return function
+      function monitorCount(rows, columns) {
+        return rows * columns;
+      }
+
+      const numOfMonitors = monitorCount(5, 5);
+      console.log(numOfMonitors);
+
+      //Function expressions
+      const plantNeedsWater = function (day) {
+        if (day === "Wednesday") return true;
+        else return false;
+      };
+
+      console.log(plantNeedsWater("Wednesday"));
+
+      //Arrow function
+      const preorderGame = (rating) => {
+        if (rating > 7) {
+          return true;
+        } else {
+          return false;
+        }
+      };
+      console.log(preorderGame(5));
+
+      //Concise body arrows
+      const days = "Wednesday";
+      const plantNeedsAqua = (days) => (days === "Wednesday" ? true : false);
+      console.log(plantNeedsAqua);
+
+      //Rock,paper scissors game
+      const getUserChoice = (userInput) => {
+        userInput = userInput.toLowerCase();
+        if (
+          userInput === "rock" ||
+          userInput === "paper" ||
+          userInput === "scissors"
+        ) {
+          return userInput;
+        } else {
+          console.log("Try again!");
+        }
+      };
+      console.log(getUserChoice("rock"));
+
+      const getComputerChoice = () => {
+        switch (Math.floor(Math.random() * 3)) {
+          case 0:
+            return "rock";
+          case 1:
+            return "paper";
+          case 2:
+            return "scissors";
+        }
+      };
+      console.log(getComputerChoice());
+
+      const determineWinner = (getUserChoice, getComputerChoice) => {
+        if (getUserChoice === getComputerChoice) {
+          return "Tie game!";
+        }
+        if (getUserChoice === "rock") {
+          if (getComputerChoice === "paper") {
+            return "Computer Victory!";
+          } else {
+            return "Your Game!";
+          }
+        }
+        if (getUserChoice === "paper") {
+          if (getComputerChoice === "scissors") {
+            return "Computer Victory!";
+          } else {
+            return "Your Game!";
+          }
+        }
+        if (getUserChoice === "scissors") {
+          if (getComputerChoice === "rock") {
+            return "Computer Victory!";
+          } else {
+            return "Your Game!";
+          }
+        }
+      };
+
+      console.log(determineWinner("paper", "scissors"));
+      console.log(determineWinner("paper", "rock"));
+      console.log(determineWinner("paper", "paper"));
+
+      const playGame = () => {
+        const userChoice = getUserChoice("scissors");
+        const computerChoice = getComputerChoice();
+        console.log(`You threw: ${userChoice}`);
+        console.log(`The computer threw: ${computerChoice}`);
+        console.log(determineWinner(userChoice, computerChoice));
+      };
+
+      playGame();
     </script>
   </body>
 </html>
