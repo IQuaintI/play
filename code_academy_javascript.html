@@ -382,6 +382,54 @@
       };
 
       playGame();
+
+      //Coin flip game
+      const getSideChoice = (sideChoice) => {
+        sideChoice = sideChoice.toLowerCase();
+        if (sideChoice === "heads" || sideChoice === "tails") {
+          return sideChoice;
+        } else {
+          console.log("Its either heads or tails");
+        }
+      };
+
+      const getComputerSide = () => {
+        switch (Math.floor(Math.random() * 1)) {
+          case 0:
+            return "heads";
+            break;
+          case 1:
+            return "tails";
+        }
+      };
+
+      const whoWins = (getSideChoice, getComputerSide) => {
+        if (getSideChoice === getComputerChoice) {
+          return "Draw!";
+        }
+        if (getSideChoice === "heads") {
+          if (getComputerSide === "tails") {
+            return "Player Wins!";
+          }
+        }
+        if (getSideChoice === "tails") {
+          if (getComputerSide === "heads") {
+            return "Player Wins!";
+          }
+        } else {
+          return "Computer Wins!";
+        }
+      };
+
+      const flipCoin = () => {
+        const userFlip = getSideChoice("heads");
+        const computerFlip = getComputerSide();
+        console.log(`You picked: ${getSideChoice}!`);
+        console.log(`The computer picked ${getComputerSide}!`);
+        console.log(whoWins(userFlip, computerFlip));
+      };
+
+      flipCoin();
     </script>
   </body>
 </html>
