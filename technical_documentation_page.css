@@ -1,4 +1,5 @@
 html {
+  background-color: bisque;
   display: flex;
   inline-size: 100%;
 }
@@ -12,12 +13,26 @@ a:visited {
   text-decoration: none;
 }
 a:hover {
-  color: pink;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
-#red:target:hover {
+#link-red:hover {
   color: red;
+}
+
+#link-brown:hover {
+  color: #80461b;
+}
+#link-red-brown:hover {
+  color: brown;
+}
+
+#link-green:hover {
+  color: green;
+}
+
+#link-blue:hover {
+  color: blue;
 }
 
 .header {
@@ -75,6 +90,16 @@ p {
   position: relative;
 }
 
+.cairo {
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  margin-left: 20px;
+  margin-top: 20px;
+  width: 100%;
+}
+
 @media only screen and (max-width: 800px) {
   #navbar {
     border-bottom: 2px grey solid;
@@ -113,9 +138,18 @@ p {
   .main-section {
     margin-bottom: 30px;
   }
+
+  .cairo {
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    margin-left: 50px;
+    margin-top: 20px;
+    width: 100%;
+  }
 }
 
-.cairo {
-  height: auto;
-  width: 100%;
+li {
+  font-weight: bolder;
 }
