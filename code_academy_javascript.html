@@ -384,6 +384,7 @@
       playGame();
 
       //Coin flip game
+      //While the below works it does not make as a side has to be called for there to be a victor
       const getSideChoice = (sideChoice) => {
         sideChoice = sideChoice.toLowerCase();
         if (sideChoice === "heads" || sideChoice === "tails") {
@@ -394,42 +395,350 @@
       };
 
       const getComputerSide = () => {
-        switch (Math.floor(Math.random() * 1)) {
+        switch (Math.floor(Math.random() * 2)) {
           case 0:
             return "heads";
-            break;
           case 1:
             return "tails";
         }
       };
 
       const whoWins = (getSideChoice, getComputerSide) => {
-        if (getSideChoice === getComputerChoice) {
+        if (getSideChoice === getComputerSide) {
           return "Draw!";
         }
         if (getSideChoice === "heads") {
           if (getComputerSide === "tails") {
             return "Player Wins!";
+          } else {
+            return "PC Wins!";
           }
         }
         if (getSideChoice === "tails") {
           if (getComputerSide === "heads") {
+            return "PC Wins!";
+          } else {
             return "Player Wins!";
           }
-        } else {
-          return "Computer Wins!";
         }
       };
 
       const flipCoin = () => {
-        const userFlip = getSideChoice("heads");
+        const userFlip = getSideChoice("tails");
         const computerFlip = getComputerSide();
-        console.log(`You picked: ${getSideChoice}!`);
-        console.log(`The computer picked ${getComputerSide}!`);
+        console.log(`You picked: ${userFlip}`);
+        console.log(`The computer picked: ${computerFlip}`);
         console.log(whoWins(userFlip, computerFlip));
       };
 
       flipCoin();
+
+      //Sleep Debt Calculator
+      //How many hours of sleep usesr gets each night
+      const getSleepHours = (day) => {
+        day = day.toLowerCase();
+        if (day === "monday") {
+          return 7;
+        } else if (day === "tuesday") {
+          return 7;
+        } else if (day === "wednesday") {
+          return 7;
+        } else if (day === "thursday") {
+          return 7;
+        } else if (day === "friday") {
+          return 7;
+        } else if (day === "saturday") {
+          return 7;
+        } else if (day === "sunday") {
+          return 7;
+        } else {
+          return "Error. Please insert day of the week.";
+        }
+      };
+
+      //Added all the hours of sleep user gets each night
+      const getActualSleepHours = () => {
+        return (
+          getSleepHours("monday") +
+          getSleepHours("tuesday") +
+          getSleepHours("wednesday") +
+          getSleepHours("thursday") +
+          getSleepHours("friday") +
+          getSleepHours("saturday") +
+          getSleepHours("sunday")
+        );
+      };
+
+      //Calculate perfect amount of sleep
+      const getIdealSleepHours = () => {
+        const idealHours = 7;
+        return idealHours * 7;
+      };
+
+      //Sleep debt responses
+      const calculateSleepDebt = () => {
+        const actualSleepHours = getActualSleepHours();
+        const idealSleepHours = getIdealSleepHours();
+        if (actualSleepHours === idealSleepHours) {
+          console.log(
+            `You got ${actualSleepHours} hours of sleep this week. Perfect Sleep!`
+          );
+        } else if (actualSleepHours > idealSleepHours) {
+          console.log(`You got ${actualSleepHours} hours of sleep. Overslept!`);
+        } else {
+          console.log(
+            `Get some rest! You got only got ${actualSleepHours} hours of sleep.`
+          );
+        }
+      };
+
+      calculateSleepDebt();
+
+      //Alarm
+      const sleepAlarm = (alarm) => {
+        console.log(`Alarm set for ${alarm}!`);
+      };
+      sleepAlarm("0600");
+
+      //Color
+      const logSkyColor = (color) => {
+        console.log(`The sky is the color ${color}`);
+      };
+      logSkyColor("blue");
+
+      //push()
+      const numberLine = [1, 2, 3];
+      numberLine.push(4, 5, 6);
+      console.log(numberLine);
+
+      //pop()
+      const groceryList = ["apple", "orange", "pear"];
+      groceryList.pop();
+      console.log(groceryList);
+
+      //shift - unshift
+      const colorList = ["red", "blue", "green"];
+      colorList.shift();
+      console.log(colorList);
+      colorList.unshift("purple");
+      console.log(colorList);
+
+      //function testing
+      function showMessage() {
+        alert("Hello");
+      }
+      //showMessage(); brings up box
+
+      function showIt(whoIsIt = "Operator") {
+        console.log(`${whoIsIt} joins the fray! `);
+      }
+      showIt("Jackie");
+      showIt();
+
+      //
+      function mathSomeNumbers(a, b) {
+        console.log(a + b);
+        console.log(a - b);
+        console.log(a * b);
+        console.log(a / b);
+        console.log(a % b);
+      }
+      mathSomeNumbers(2, 2);
+
+      //
+      function fruitCount(apple, orange) {
+        return apple + orange;
+      }
+      const numOfFruit = fruitCount(5, 5);
+      console.log(numOfFruit);
+
+      //
+      function tierCount(bronze, silver, gold) {
+        return bronze + silver + gold;
+      }
+      const tierPool = tierCount(20, 10, 5);
+      console.log(tierPool);
+
+      //Loop addition and subtraction
+      for (let counter = 0; counter < 10; counter++) {
+        console.log(counter);
+      }
+      for (let counter = 10; counter >= 0; counter--) {
+        console.log(counter);
+      }
+
+      //Loop through array
+      const loopTest = ["you", "will", "not", "survive"];
+      for (let i = 0; i < loopTest.length; i++) {
+        console.log(loopTest[i]);
+      }
+
+      //Nested loops
+      const myArray = [6, 19, 20];
+      const yourArray = [19, 81, 2];
+      for (let i = 0; i < myArray.length; i++) {
+        for (let j = 0; j < yourArray.length; j++) {
+          if (myArray[i] === yourArray[j]) {
+            console.log("Both arrays have the number: " + yourArray[j]);
+          }
+        }
+      }
+
+      //Nested loops practice
+      let bobsFollowers = ["Joe", "Marta", "Sam", "Erin"];
+      let tinasFollowers = ["Sam", "Marta", "Elle"];
+      let mutualFollowers = [];
+
+      for (let i = 0; i < bobsFollowers.length; i++) {
+        for (let j = 0; j < tinasFollowers.length; j++) {
+          if (bobsFollowers[i] === tinasFollowers[j]) {
+            mutualFollowers.push(bobsFollowers[i]);
+            console.log(mutualFollowers);
+          }
+        }
+      }
+
+      //Do...while statements
+      let shelfSpace = 10;
+      let booksOnShelf = 1;
+
+      do {
+        booksOnShelf++;
+        console.log(booksOnShelf + ` Books shelved`);
+      } while (booksOnShelf < shelfSpace);
+
+      //Break test
+      const colorArray = ["red", "blue", "green", "yellow"];
+
+      for (let i = 0; i < colorArray.length; i++) {
+        console.log(colorArray[i]);
+        if (colorArray[i] === "green") {
+          break;
+        }
+      }
+      console.log("Is my favorite color");
+
+      //Whale talk
+      let whaleInput = "The sky is blue";
+      const whaleArray = ["a", "e", "i", "o", "u"];
+      let resultArray = [];
+
+      for (let i = 0; i < whaleInput.length; i++) {
+        for (let j = 0; j < whaleArray.length; j++) {
+          if (whaleInput[i] === whaleArray[j]) {
+            resultArray.push(whaleArray[j]);
+          }
+        }
+      }
+
+      console.log(resultArray.join("").toUpperCase());
+
+      //For - loop testing
+      let directions = ["up", "down", "left", "right"];
+
+      for (
+        let directionsArray = 0;
+        directionsArray < directions.length;
+        directionsArray++
+      ) {
+        console.log(directions[directionsArray]);
+      }
+
+      //
+      const animal = "cat";
+
+      for (let i = 0; i < animal.length; i++) {
+        console.log(animal[i]);
+        for (let j = 1; j < 4; j++) {
+          console.log(j);
+        }
+      }
+
+      //Conditional review
+
+      //Logical operator (&&) checks two values and if they are both truthy then (true) is returned
+      const abd = true;
+      const adb = true;
+      console.log(abd && adb); //Returns (true) since both are true
+
+      const ccd = false;
+      const ccb = true;
+      console.log(ccd && ccb); //Returns (false) since one is false
+
+      //Logical operator (||) checks two values and returns (true) if at least one is truthy
+      const abb = true;
+      const add = false;
+      console.log(abb || add); //Returns true as one value is truthy
+
+      const baa = false;
+      const aba = false;
+      console.log(baa || aba); //Returns false as both values are falsy
+
+      //(if) statements accept expressions and run them if the code is truthy
+      const isItHotOutside = true;
+      if (isItHotOutside) {
+        console.log("Sunscreen!");
+      } //Returns the log as the value is truthy
+
+      const isItColdOutside = false;
+      if (isItColdOutside) {
+        console.log("Wear a coat!");
+      } //Nothing shows in log as value is falsy
+
+      //(else) statements can be added to if statements to grant a condition on false
+      const areYouGoingHome = false;
+      if (areYouGoingHome) {
+        console.log("Rest Well!");
+      } else {
+        console.log("Party On!");
+      }
+
+      //(else...if) checks additional conditions
+      const luckyDay = "Saturday";
+
+      if (luckyDay === "Monday") {
+        console.log("No");
+      } else if (luckyDay === "Tuesay") {
+        console.log("Yes");
+      } else if (luckyDay === "Wednesday") {
+        console.log("No");
+      } else if (luckyDay === "Thursday") {
+        console.log("Yes");
+      } else if (luckyDay === "Friday") {
+        console.log("No");
+      } else {
+        console.log("Weekends are always lucky!");
+      }
+
+      //Ternary Operator is a compact syntax that compares two decisions
+      function areYouGoingToStudy(maybe) {
+        return maybe ? "Yes" : "No";
+      }
+      console.log(areYouGoingToStudy(true));
+      console.log(areYouGoingToStudy(false));
+      console.log(areYouGoingToStudy(null)); //Also returns a false since value is falsey
+
+      function getFree(isMember) {
+        return isMember ? "$2.00" : "$10.00";
+      }
+      console.log(getFree(true));
+
+      //(switch) statements compare expressions against a series of (case) clauses
+      const whatGrade = 10;
+      switch (true) {
+        case whatGrade >= 90:
+          console.log("Star Student!");
+          break;
+        case whatGrade >= 80:
+          console.log("Great Work!");
+          break;
+        case whatGrade >= 70:
+          console.log("Good Job!");
+          break;
+        default:
+          console.log("You got this! Just a bit further!");
+          break;
+      }
     </script>
   </body>
 </html>
