@@ -654,6 +654,50 @@
         }
       }
 
+      //Introduction review
+
+      //(console.log) displays messages to the console
+      console.log("Hello World!");
+
+      //Methods return information about an object
+      console.log(Math.random()); //Returns a random number between 0 and 1
+      console.log(Math.floor(3.9));
+      //Libraries contain method - Math is the library above
+
+      //Numbers are primative and contain all integters and floating point numbers
+      let price = 12;
+      let amount = 10;
+      let change = price - amount;
+      console.log(change);
+
+      //Strings are primitive data and are groups of characters in quotes;
+      let stringExample = "This is a string";
+
+      //String.length returns the amount of characters in a string
+      console.log("Blue".length); //Shows 4 in log
+
+      //Booleans use (true)/(false) input
+      let areYouGoingToBedEarly = true; //Shows (true) in log
+
+      //Two foward slashes followed by text is considered a single line comment; it is not considered when running code
+
+      /*
+        Foward slash followed by an asterisk denotes multi-line comments
+      */
+
+      //String interpolation/concatentation is the process of adding placeholders with string literals
+      let age = 7;
+
+      //String concatenation
+      console.log("You are " + age + " years old");
+
+      //String interpolation
+      console.log(`You are ${age} years old`); //Must use backticks
+
+      //Undefined is a primitive Javascript value that has no defined value
+      let a;
+      console.log(a); //Prints undefined
+
       //Conditional review
 
       //Logical operator (&&) checks two values and if they are both truthy then (true) is returned
@@ -724,7 +768,7 @@
       console.log(getFree(true));
 
       //(switch) statements compare expressions against a series of (case) clauses
-      const whatGrade = 10;
+      const whatGrade = 100;
       switch (true) {
         case whatGrade >= 90:
           console.log("Star Student!");
@@ -738,6 +782,144 @@
         default:
           console.log("You got this! Just a bit further!");
           break;
+      }
+
+      //Functions review
+
+      //A function is a reusable set of statements that perform a task
+      function whereAreYou() {
+        console.log("Home");
+      }
+
+      //Calling the function is needed to show function in log
+      whereAreYou();
+
+      //Anonymous functions are not properly named and are defined using function
+      const whereDidYouGo = function () {
+        console.log("Nowhere");
+      };
+
+      whereDidYouGo();
+
+      //Function expressions create functions through an expression and not a decalration
+      //The (Anonymous function) line is an example of function expression
+      //The (A function is a reusable..) line is an example of function declaration
+
+      //return ends the execution and passes back the value - if (return) is not stated then (undefined) is returned
+      function addNumbers(number1, number2) {
+        return number1 + number2;
+      }
+
+      console.log(addNumbers(3, 3));
+
+      //Passes undefined since (reuturn) is not noted in the above
+      function subNumbers(num1, num2) {
+        num1 + num2;
+      }
+
+      console.log(subNumbers(3, 3));
+
+      //Scope review
+
+      //Global scope can be used anywhere in the program
+      const globalScopeExample = "blue"; //Global variables are best kept to a minimum to avoid conflict
+
+      //Block Scoped Variables can ony be used in their respective block; calling otherwise would result in error
+      const isFatherHome = true;
+
+      if (isFatherHome === true) {
+        const fatherReport = "He is home";
+      }
+
+      // console.log(fatherReport); //This brings up the debugger showing (undefined)
+
+      //Arrays review
+
+      //An array is a list of ordered data
+      //Arrays are mutable meaning that they can have values be reassigned
+      const arrayExample = [
+        "This is an array",
+        "It has stores different data types such as: ",
+        1,
+        2,
+        3,
+        4,
+        5,
+      ];
+
+      console.log(arrayExample);
+
+      //.length shows the amount of caracters an array contain
+      const lengthExample = [1, 2, 3, 4, 5];
+      console.log(lengthExample.length);
+
+      //Elements in an array can be arranged by index starting at 0
+      const indexExample = [1, 2, 3, 4, 5];
+      console.log(indexExample[0]);
+
+      //(.push) can be used to add elements to the end of an array
+      const addToindexExample = [1, 2, 3];
+      addToindexExample.push(1, 2, 3);
+      console.log(addToindexExample);
+
+      //(.pop) can be used to to remove the last element in the array and return it
+      const removeFromIndexExample = [1, 2, 3, 4, 5];
+      const removedNumber = removeFromIndexExample.pop();
+
+      console.log(removeFromIndexExample); //The (5) does not show up in the array
+      console.log(removedNumber); //The removed (5) is displayed
+
+      //Loops review
+
+      //A loop is a tool that is used to iterate sets of instructions
+
+      //For loops decalare the loop along with (initialization; stopping condition; iteration statement)
+      for (let cats = 0; cats < 5; cats += 1) {
+        console.log(cats);
+      }
+
+      //The (break) keyword is used to stop loops immediately
+      for (let g = 0; g < 99; g++) {
+        if (g > 5) {
+          break;
+        }
+        console.log(g);
+      }
+
+      //While loops create a loop that executes so long as a statement remains (true)
+      let j = 0;
+
+      while (j < 3) {
+        console.log(j);
+        j++;
+      }
+
+      //Do...while statementes excute the block of code once and then check if the conditions are met
+      let x = 0;
+
+      do {
+        console.log(x);
+        x++;
+      } while (x < 10);
+
+      //Arrays can be looped through
+      const arrayLoopTest = "House";
+      for (let i = 0; i < arrayLoopTest.length; i++) {
+        console.log(arrayLoopTest[i]); //"House" is displayed vertically instead of horizontally
+      }
+
+      //For loops can be nested - a (for) loop in a (for) loop - the inner iteration runs for each iteration of the outer loop
+      for (let outer = 0; outer < 2; outer += 1) {
+        for (let inner = 0; inner < 3; inner += 1) {
+          console.log(`${outer}-${inner}`);
+        }
+      }
+
+      //Loops can also be iterated in "reverse"
+      const items = ["apricot", "banana", "cherry"];
+
+      for (let i = items.length - 1; i >= 0; i -= 1) {
+        console.log(`${i}. ${items[i]}`);
       }
     </script>
   </body>
