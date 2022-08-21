@@ -921,6 +921,16 @@
       for (let i = items.length - 1; i >= 0; i -= 1) {
         console.log(`${i}. ${items[i]}`);
       }
+
+      //Function declaration test
+      function checkSession(flag) {
+        if (flag === false) {
+          console.log("Session Expired");
+        }
+      }
+
+      checkSession(true); //Shows nothing
+      checkSession(false);
     </script>
   </body>
 </html>
