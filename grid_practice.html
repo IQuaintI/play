@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid Practice</title>
+  </head>
+
+  <style>
+    /*Legend
+    1. Heading
+    2. Colors
+    3. Grid
+    */
+
+    /* 1. Heading */
+    h1 {
+      text-align: center;
+      font-size: 30px;
+    }
+
+    /* 2. Colors */
+    .red {
+      background-color: red;
+      height: 100px;
+      width: 100px;
+    }
+
+    .blue {
+      background-color: blue;
+      height: 100px;
+      width: 100px;
+    }
+
+    .green {
+      background-color: green;
+      height: 100px;
+      width: 100px;
+    }
+
+    /* 3. Grid */
+
+    .container {
+      display: grid;
+      grid-template-rows: repeat(9, 200px);
+      grid-template-columns: repeat(3, 200px);
+      height: 600px;
+      justify-content: center;
+    }
+
+    .page {
+      display: grid;
+      border-top: 2px solid grey;
+      grid-template-areas: "head head" "nav nav" "left right" "footer footer";
+      grid-template-columns: 50% 50%;
+    }
+
+    .head {
+      grid-area: head;
+    }
+
+    nav {
+      grid-area: nav;
+    }
+
+    .right {
+      grid-area: right;
+    }
+
+    .left {
+      grid-area: left;
+    }
+
+    footer {
+      grid-area: footer;
+    }
+  </style>
+
+  <body>
+    <section>
+      <h1>Grid Practice</h1>
+    </section>
+
+    <!--Grid One-->
+    <section class="container">
+      <div class="red"></div>
+      <div class="red"></div>
+      <div class="red"></div>
+      <div class="blue"></div>
+      <div class="blue"></div>
+      <div class="blue"></div>
+      <div class="green"></div>
+      <div class="green"></div>
+      <div class="green"></div>
+    </section>
+
+    <section>
+      <!--Grid Two-->
+      <section class="page">
+        <header class="head">
+          <h1>Header</h1>
+        </header>
+
+        <nav>
+          <h1>Nav</h1>
+        </nav>
+
+        <div class="right">
+          <h1>Right</h1>
+        </div>
+
+        <div class="left">
+          <h1>Left</h1>
+        </div>
+
+        <footer>
+          <h1>Footer</h1>
+        </footer>
+      </section>
+    </section>
+  </body>
+</html>
