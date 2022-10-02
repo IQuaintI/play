@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock,Paper,Scissors</title>
+  </head>
+  <body>
+    <script>
+      //Testing console.log
+      console.log("hello");
+      console.log("hello".length);
+
+      //Testing conditionals
+      let color = "RED".toLowerCase();
+
+      if (color === "red") {
+        console.log("the color is red");
+      } else if (color === "blue") {
+        console.log("the color is blue");
+      } else if (color === "green") {
+        console.log("the color is green");
+      } else {
+        console.log("error");
+      }
+
+      //Switch statement
+      const number = 2;
+
+      switch (number) {
+        case 1:
+          console.log("the number is 1");
+          break;
+        case 2:
+          console.log("the number is 2");
+          break;
+        case 3:
+          console.log("the number is 3");
+          break;
+        default:
+          console.log("error");
+          break;
+      }
+
+      //Testing math
+      console.log(Math.floor(Math.random() * 100));
+
+      //Logical NOT (bang operator)
+      let isIt = true;
+      let itItNot = !isIt;
+      console.log(itItNot);
+    </script>
+
+    <!--Rock, Paper, Scissors-->
+    <script>
+      const getUserChoice = (userInput) => {
+        userInput = userInput.toLowerCase();
+        if (
+          userInput != "rock" &&
+          userInput != "paper" &&
+          userInput != "scissors" &&
+          userInput != "bomb"
+        ) {
+          console.log("Sorry! Pick another option!");
+        } else if ((userInput = "bomb")) {
+          return userInput;
+        } else {
+          return userInput;
+        }
+      };
+
+      const getComputerChoice = () => {
+        const rng = Math.floor(Math.random() * 3);
+        switch (rng) {
+          case 0:
+            return "rock";
+            break;
+
+          case 1:
+            return "paper";
+            break;
+
+          case 2:
+            return "scissors";
+            break;
+        }
+      };
+
+      const determineWinner = (userChoice, computerChoice) => {
+        if (userChoice === "bomb") {
+          return "Absolute victory!";
+        }
+
+        if (userChoice === computerChoice) {
+          return "Tie Game!";
+        }
+
+        if (userChoice === "rock") {
+          if (computerChoice === "paper") {
+            return "The computer won!";
+          } else {
+            return "You won!";
+          }
+        }
+
+        if (userChoice === "paper") {
+          if (computerChoice === "scissors") {
+            return "The computer won!";
+          } else {
+            return "You won!";
+          }
+        }
+
+        if (userChoice === "scissors") {
+          if (computerChoice === "rock") {
+            return "The computer won!";
+          } else {
+            return "You won!";
+          }
+        }
+      };
+
+      const playGame = () => {
+        let userChoice = getUserChoice("bomb");
+        let computerChoice = getComputerChoice();
+        console.log("You threw a " + userChoice);
+        console.log("The computer threw a " + computerChoice);
+        console.log(determineWinner(userChoice, computerChoice));
+      };
+
+      playGame();
+    </script>
+
+    <!--Sleep Debt Calculator-->
+    <script>
+      const getSleepHours = (day) => {
+        day = day.toLowerCase();
+        switch (day) {
+          case "monday":
+            return 8;
+            break;
+
+          case "tuesday":
+            return 8;
+            break;
+
+          case "wednesday":
+            return 8;
+            break;
+
+          case "thursday":
+            return 8;
+            break;
+
+          case "friday":
+            return 8;
+            break;
+
+          case "saturday":
+            return 8;
+            break;
+
+          case "sunday":
+            return 7;
+            break;
+
+          default:
+            "invalid entry";
+        }
+      };
+
+      const getActualSleepHours = () =>
+        getSleepHours("monday") +
+        getSleepHours("tuesday") +
+        getSleepHours("wednesday") +
+        getSleepHours("thursday") +
+        getSleepHours("friday") +
+        getSleepHours("saturday") +
+        getSleepHours("sunday");
+
+      const getIdealSleepHours = () => {
+        let idealHours = 8;
+        return idealHours * 7;
+      };
+
+      const calculateSleepDebt = () => {
+        let actualSleepHours = getActualSleepHours();
+        let idealSleepHours = getIdealSleepHours();
+
+        if (actualSleepHours === idealSleepHours) {
+          console.log("Perfect! You got optimal sleep!");
+        } else if (actualSleepHours > idealSleepHours) {
+          console.log(
+            `Tired are we! You overslept by ${
+              actualSleepHours - idealSleepHours
+            } hours!`
+          );
+        } else {
+          console.log(
+            `Be careful! You need ${
+              idealSleepHours - actualSleepHours
+            } more hour of sleep!`
+          );
+        }
+      };
+
+      calculateSleepDebt();
+    </script>
+
+    <!--Coin flip-->
+    <script>
+      //Declaring getCoinSide
+      function getCoinSide(coinSide) {
+        coinSide = coinSide.toLowerCase();
+        if (coinSide != "heads" && coinSide != "tails" && coinSide != "win") {
+          return "error";
+        } else {
+          return coinSide;
+        }
+      }
+
+      console.log(getCoinSide("HEAD"));
+
+      //Declaring getComputer Side
+      function getComputerSide() {
+        const random = Math.floor(Math.random() * 2);
+        switch (random) {
+          case 0:
+            return "heads";
+            break;
+
+          case 1:
+            return "tails";
+            break;
+        }
+      }
+
+      console.log(getComputerSide());
+
+      //Declaring whoWins
+      function whoWins(coinSidePick, computerSidePick) {
+        if (coinSidePick === "win") {
+          return "Overwhelming Victory!";
+        }
+
+        if (coinSidePick === computerSidePick) {
+          return "Draw!";
+        }
+
+        if (coinSidePick === "heads") {
+          if (computerSidePick === "tails") {
+            return "You Win!";
+          } else "The  Computer Won!";
+        }
+
+        if (coinSidePick === "tails") {
+          if (computerSidePick === "heads") {
+            return "You Lost!";
+          }
+        }
+      }
+
+      function letsPlay() {
+        let coinSidePick = getCoinSide("heads");
+        let computerSidePick = getComputerSide();
+        console.log(`You chose ${coinSidePick}`);
+        console.log(`The computer choice ${computerSidePick}`);
+        console.log(whoWins(coinSidePick, computerSidePick));
+      }
+
+      letsPlay();
+    </script>
+
+    <script>
+      const returnSkyColor = (color) => {
+        return color; // blue;
+      };
+
+      console.log(returnSkyColor("blue"));
+
+      function logFavoriteMeal() {
+        let favoriteMeal = "fish";
+        console.log(favoriteMeal);
+      }
+
+      logFavoriteMeal();
+      //Will return an error// console.log(favoriteMeal);
+
+      function logFavoriteAnimal() {
+        const isItReal = true;
+        let favoriteAnimal = "rabbit";
+        if (isItReal) {
+          let favoriteAnimal = "penguin";
+          console.log(favoriteAnimal);
+        }
+        console.log(favoriteAnimal);
+      }
+
+      logFavoriteAnimal();
+      //Returns error as it is not global// console.log(favoriteAnimal);
+    </script>
+
+    <script>
+      //Random events
+      function getRandomEvent() {
+        const randomEvent = Math.floor(Math.random() * 3);
+        {
+          switch (randomEvent) {
+            case 0:
+              return "Marathon";
+              break;
+
+            case 1:
+              return "Triathlon";
+              break;
+
+            case 2:
+              return "Pentathlon";
+              break;
+          }
+        }
+      }
+
+      console.log(getRandomEvent());
+
+      //Gradework
+      function getFinalGrade(midterm, final, homework) {
+        if (
+          midterm < 0 ||
+          midterm > 100 ||
+          final < 0 ||
+          final > 100 ||
+          homework < 0 ||
+          homework > 100
+        ) {
+          return "You have entered an invalid grade";
+        }
+
+        let average = (midterm + final + homework) / 3;
+        if (average < 60) {
+          return "F";
+        } else if (average < 70) {
+          return "D";
+        } else if (average < 80) {
+          return "C";
+        } else if (average < 90) {
+          return "B";
+        } else {
+          return "A";
+        }
+      }
+
+      console.log(getFinalGrade(90, 90, 90));
+
+      //Die Roll
+      const rollTheDice = () => {
+        const die1 = Math.floor(Math.random() * 6 + 1);
+        const die2 = Math.floor(Math.random() * 6 + 1);
+        return die1 + die2;
+      };
+
+      console.log(rollTheDice());
+
+      //Calculate Planet Weigh
+      function calculateWeight(earthWeight, planet) {
+        planet = planet.toLowerCase();
+        switch (planet) {
+          case "mercury":
+            return earthWeight * 0.378;
+
+          case "venus":
+            return earthWeight * 0.907;
+
+          case "mars":
+            return earthWeight * 0.377;
+
+          case "jupiter":
+            return earthWeight * 2.36;
+
+          case "saturn":
+            return earthWeight * 0.916;
+
+          default:
+            return "Invalid Planet Entry. Try: Mercury, Venus, Mars, Jupiter, or Saturn.";
+        }
+      }
+      console.log(calculateWeight(100, "MARS"));
+
+      //Truth or Falsy
+      function truthyOrFalsy(value) {
+        return value ? true : false;
+      }
+
+      console.log(truthyOrFalsy(NaN));
+
+      //Imaginary Friends
+      function numImaginaryFriends(totalFriends) {
+        return Math.ceil(totalFriends / 4);
+      }
+
+      console.log(numImaginaryFriends(2));
+
+      //Silly Sentence
+      function sillySentence(adjective, verb, noun) {
+        return `I am so ${adjective} because I ${verb} coding! Time to write some more awesome ${noun}! `;
+      }
+
+      console.log(sillySentence("happy", "love", "programs"));
+
+      //How Old
+
+      /* const howOld = (age, year) => {
+                    let currentYear = 2022;
+                    let bornYear = currentYear - age;
+                    let yearDifference2 = bornYear - year;
+                    const yearDifference = year - currentYear;
+                    const newAge = age + yearDifference;
+                    if (year > currentYear) {
+                      return "You will be " + newAge + " in the year " + year;
+                    } else if (year < bornYear) {
+                      return (
+                        "The year " +
+                        year +
+                        " was " +
+                        yearDifference2 +
+                        " years before you were born"
+                      );
+                    } else if (year < currentYear && year > bornYear) {
+                      return "You were " + newAge + " in the year " + year;
+                    }
+                  }; */
+
+      //How Old Work (Psuedo-Code)
+
+      //Function declaration
+      function howOld(age, year) {
+        //Declaring current year
+        let currentYear = 2022;
+        //Declaring year born
+        let bornYear = currentYear - year;
+        //Declaring year differences for the future
+        let yearDifferences2 = year - currentYear;
+        //Declaring year differences for the past
+        let yearDifferences = currentYear - year;
+        //How old you will be
+        let newAge = age + yearDifferences;
+        if (year > currentYear) {
+          return "You will be " + newAge + " in the year " + year;
+        } else if (year < bornYear) {
+          return (
+            "The year " +
+            year +
+            " was " +
+            yearDifference2 +
+            " years before you were born"
+          );
+        } else if (year < currentYear && year > bornYear) {
+          return "You were " + newAge + " in the year " + year;
+        }
+      }
+
+      console.log(howOld(25, 2023));
+
+      //Fix the Broken Code
+      const whatRelation = (percentSharedDNA) => {
+        if (percentSharedDNA === 100) {
+          return "You are likely identical twins.";
+        }
+        if (percentSharedDNA > 34) {
+          return "You are likely parent and child or full siblings.";
+        }
+        if (percentSharedDNA > 13) {
+          return "You are likely grandparent and grandchild, aunt/uncle and niece/nephew, or half siblings.";
+        }
+        if (percentSharedDNA > 5) {
+          return "You are likely 1st cousins.";
+        }
+        if (percentSharedDNA > 2) {
+          return "You are likely 2nd cousins.";
+        }
+        if (percentSharedDNA > 0) {
+          return "You are likely 3rd cousins";
+        }
+        return "You are likely not related.";
+      };
+
+      console.log(whatRelation(34));
+      // Should print 'You are likely grandparent and grandchild, aunt/uncle and niece/nephew, or half siblings.'
+
+      console.log(whatRelation(3));
+      // Should print 'You are likely 2nd cousins.'
+
+      //tipCalculator()
+      function tipCalculator(quality, total) {
+        quality = quality.toLowerCase();
+        switch (quality) {
+          case "bad":
+            return total * 0.05;
+          case "ok":
+            return total * 0.15;
+          case "good":
+            return total * 0.2;
+          case "excellent":
+            return total * 0.3;
+          default:
+            return total * 0.18;
+        }
+      }
+
+      console.log(tipCalculator("cool", 100));
+
+      //toEmoticon()
+      function toEmoticon(emoticon) {
+        emoticon = emoticon.toLowerCase();
+        switch (emoticon) {
+          case "shrug":
+            return '|_{"}_|';
+          case "smiley face":
+            return ":)";
+          case "frowny face":
+            return ":(";
+          case "winky face":
+            return ";)";
+          case "heart":
+            return "<3";
+          default:
+            return "|_(* ~ *)_|";
+        }
+      }
+
+      console.log(toEmoticon("smile"));
+
+      //colorMessage()
+      function colorMessage(favoriteColor, shirtColor) {
+        favoriteColor = favoriteColor.toLowerCase();
+        shirtColor = shirtColor.toLowerCase();
+        if (favoriteColor === shirtColor) {
+          return "The shirt is your favorite color";
+        }
+      }
+      console.log(colorMessage("green", "green"));
+
+      //isEven()
+      function isEven(num) {
+        if (num % 2 === 0) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+      console.log(isEven(5));
+
+      //Number of Digits
+      function numberDigits(x) {
+        if (x >= 0 && x < 9) {
+          return `One Digit: ${x}`;
+        } else if (x > 10 && x < 99) {
+          return `Two Digits: ${x}`;
+        } else if (x < 0 || x > 100) {
+          return `The number is: ${x}`;
+        }
+      }
+
+      console.log(numberDigits(0));
+
+      //Promise testing
+      const inventory = {
+        sunglasses: 1900,
+        pants: 1088,
+        bags: 1344,
+      };
+
+      function myExecutor(resolve, reject) {
+        if (sunglasses > 0) {
+          resolve("Sunglasses order processed.");
+        } else {
+          reject("That item is sold out.");
+        }
+      }
+    </script>
+  </body>
+</html>
