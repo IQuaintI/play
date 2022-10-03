@@ -42,8 +42,62 @@ const canYouEnter = getAge();
 
 console.log(canYouEnter);
 
+//Even More Promise Testing
+const color = "red";
+
+function getColor(resolve, reject) {
+  if (color === "red") {
+    resolve("You have picked red");
+  } else {
+    reject("You did not pick red");
+  }
+}
+
+function colorPicker() {
+  return new Promise(getColor);
+}
+
+const properColor = colorPicker();
+
+console.log(properColor);
+
 //Timeout Test
 function delayedHello() {
   console.log("This is a delayed hello");
 }
 setTimeout(delayedHello, 2000);
+
+//Promise-Timeout Test
+console.log("This is the first line of code in app.js.");
+// Keep the line above as the first line of code
+// Write your code here:
+function usingSTO() {
+  console.log("This is a string!");
+}
+
+setTimeout(usingSTO, 2800);
+
+// Keep the line below as the last line of code:
+console.log("This is the last line of code in app.js.");
+
+//Success Callback
+const prom = new Promise((resolve, reject) => {
+  resolve("Yay!");
+});
+
+const handleSuccess = (resolvedValue) => {
+  console.log(resolvedValue);
+};
+
+prom.then(handleSuccess); // Prints: 'Yay!'
+
+//Success Callback Testing
+function promTesting(resolve, reject) {
+  resolve("Yes");
+}
+
+function bigTesting() {
+  return new Promise(promTesting);
+}
+
+console.log(bigTesting());
