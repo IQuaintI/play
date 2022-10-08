@@ -573,11 +573,15 @@
       };
 
       function myExecutor(resolve, reject) {
-        if (sunglasses > 0) {
+        if (inventory.sunglasses > 0) {
           resolve("Sunglasses order processed.");
         } else {
           reject("That item is sold out.");
         }
+      }
+
+      function orderSunglasses() {
+        return new Promise(myExecutor);
       }
     </script>
   </body>
