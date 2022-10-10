@@ -228,3 +228,152 @@ for (const pokemon of pokemonList) {
   }
   console.log(`You caught a ${pokemon}`);
 }
+
+//Object literal
+let spaceship = {
+  "Fuel Type": "Diesel",
+  color: "silver",
+};
+
+let spaceshipFuel = spaceship["Fuel Type"];
+
+console.table(spaceship);
+console.log(spaceship.color);
+console.log(spaceship["Fuel Type"]);
+console.log(spaceship.turtle);
+console.log(spaceshipFuel);
+
+//Bracket notation
+console.log(["a", "b", "c", "d"][2]);
+
+//Property Assignment
+const numberWheels = {
+  "Wheel One": [1, 2, 3, 4, 5],
+  "Wheel Two": [6, 7, 8, 9, 10],
+  "Wheel Three": [11, 12, 13, 14, 15],
+};
+console.log(numberWheels["Wheel One"].join(" "));
+
+console.log(numberWheels["Wheel Two"].join(" "));
+
+delete numberWheels["Wheel Three"];
+
+console.table(numberWheels);
+
+console.log(numberWheels["Wheel Three"]); //Logs unrefined since delete
+
+//Method testing
+const alienShip = {
+  invade: function () {
+    console.log("Hello! We have come to take.");
+  },
+};
+
+alienShip.invade();
+
+//Objects in objects
+const seaShip = {
+  dimensions: {
+    height: "Long",
+    width: "Big Long",
+    weight: "1000 tons",
+    modelNum: "34-ZJ-97XR",
+    weapons: "Twin Zeiter Function with Anti-Dispersal Probabilities",
+    armor: "12th Generation Woven Shaets with Acoustic Deferments",
+  },
+  crew: {
+    crewSize: 400,
+    crewCritical: {
+      captainName: "One",
+      speciality: "Communes with Her Waters ",
+      seekDirection() {
+        console.log(
+          "It is only in the persistant adoration by our Lady that we can see through the Voll. -The 4th Movement"
+        );
+      },
+      subCaptainName: "Two",
+      speciality: "Watches for The Brackish Misericordia",
+      seekMercy() {
+        console.log(
+          "The Brakish are not the only to denounce Her but they are the most persistant. - Perta the Many-Sunken"
+        );
+      },
+      oratorName: "Speaks",
+      speciality: "Breaks the Silence",
+      seekWords() {
+        console.log("How does one break a sound?");
+      },
+    },
+  },
+};
+
+console.table(seaShip.dimensions);
+console.table(seaShip.dimensions.armor);
+console.log(seaShip.crew);
+console.log(seaShip.crew.seekDirection);
+
+//let capFave = spaceship.crew.captain["favorite foods"][0]; Just an insert about
+
+//Pass By Reference
+const horse = {
+  color: "brown",
+  height: "5 hands",
+  weight: "400 stones",
+};
+
+console.table(horse);
+
+function colorChange(horse) {
+  horse.color = "gold";
+}
+
+colorChange(horse);
+
+console.table(horse);
+
+//
+
+const traveler = {
+  homePlanet: "Earth",
+  color: "silver",
+};
+
+/*let paintIt = (obj) => {
+  obj.color = "glorious gold";
+}; */
+
+function paintIt(obj) {
+  obj.color = "glorious gold";
+}
+
+paintIt(traveler);
+
+console.log(traveler.color); // Returns 'glorious gold'
+
+//
+
+const travelers = {
+  homePlanet: "Earth",
+  color: "silver",
+};
+
+console.log(travelers);
+
+function paintIt(obj) {
+  (obj.color = "gold"), (obj.homePlanet = "neptune");
+}
+
+paintIt(travelers);
+
+console.log(travelers); // Returns 'glorious gold'
+
+//For...in
+const inTest = { a: 1, b: 2, c: 3 };
+
+for (const property in inTest) {
+  console.log(`${property}: ${inTest[property]}`);
+}
+
+for (const property in seaShip.crew) {
+  console.log(`${property}: ${seaShip.crew[property].crewCritical}`);
+}
