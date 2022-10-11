@@ -310,7 +310,7 @@ const seaShip = {
 console.table(seaShip.dimensions);
 console.table(seaShip.dimensions.armor);
 console.log(seaShip.crew);
-console.log(seaShip.crew.seekDirection);
+seaShip.crew.crewCritical.seekMercy();
 
 //let capFave = spaceship.crew.captain["favorite foods"][0]; Just an insert about
 
@@ -377,3 +377,158 @@ for (const property in inTest) {
 for (const property in seaShip.crew) {
   console.log(`${property}: ${seaShip.crew[property].crewCritical}`);
 }
+
+//Testing objects and changing objects
+
+const banana = {
+  color: "Yellow",
+  dimensions: {
+    height: "One banana tall",
+    width: "One banana long",
+  },
+  price: {
+    bulk: "$2/lb",
+  },
+};
+console.log(banana.color);
+function changeColor() {
+  banana.color = "Green";
+}
+changeColor(banana);
+console.log(banana.color);
+
+//The For Loop
+for (let index = 10; index >= 4; index--) {
+  console.log(index);
+}
+
+for (let index = 9; index < 20; index++) {
+  console.log(index);
+}
+
+//The for through index
+for (let index = "Hats"; index < index.length; index++) {
+  console.log(index);
+}
+
+for (let index = "Hats"; index < index.length; index++) {
+  console.log(index);
+}
+
+for (let index = "words"; index < index.length; index++) {
+  console.log(index);
+}
+
+const lengthTest = ["words", "houses", "pirate", "team"];
+console.log(lengthTest);
+console.log(lengthTest.length);
+
+/*
+ //Reverse Loop
+for (let index = 5; index >= 0; index--) {
+  console.log(index);
+} //The = sign allows for the number to no longer be exclusive
+
+//Loop Through Arrays
+const colors = ["red", "blue", "green", "yellow", "purple"];
+for (let index = 0; index < colors.length; index++) {
+  console.log(colors[index]);
+} 
+*/
+
+//Bios must be done in third person
+//Perhaps go to the soldier of the month
+//Why do soldier of the month?
+//I hate this place
+
+//For...of
+const arrayThree = [1, 2, 3, 4, 5];
+
+for (const threeArray in arrayThree) {
+  console.log(threeArray);
+}
+
+//Advanced Objects
+
+//this keyword
+const cow = {
+  dietType: "herbivore",
+  makeSound() {
+    console.log("mooo");
+  },
+  diet() {
+    console.log(this.dietType);
+  },
+};
+
+console.log(cow);
+console.log(cow.dietType);
+cow.makeSound();
+cow.diet();
+
+//Getters
+const person = {
+  _firstName: "John",
+  _lastName: "Doe",
+  get fullName() {
+    if (this._firstName && this._lastName) {
+      return `${this._firstName} ${this._lastName}`;
+    } else {
+      return "Missing first or last name";
+    }
+  },
+};
+
+console.log(person);
+person.fullName;
+console.log(person.fullName);
+console.log(typeof person.fullName);
+
+//Setters
+const personSetter = {
+  _age: 40,
+  set age(newAge) {
+    if (typeof newAge === "number") {
+      this._age = newAge;
+    } else {
+      console.log("You must asign a number to age");
+    }
+  },
+};
+
+console.log(personSetter);
+
+personSetter.age = 40;
+console.log(personSetter._age);
+
+//Factory Functions
+function monsterFactory(name, age, energySource, catchPhrase) {
+  return {
+    name: name,
+    age: age,
+    energySource: energySource,
+    scare() {
+      console.log(catchPhrase);
+    },
+  };
+}
+
+const beast = monsterFactory("Malice", 324, "Hate", "Show me your rage!");
+console.log(beast);
+beast.scare();
+
+//Destructuring
+function heroFactory(name, age, energySource, catchPhrase) {
+  return {
+    name,
+    age,
+    energySource,
+    motto() {
+      console.log(catchPhrase);
+    },
+  };
+}
+
+const fireHero = heroFactory("torch", 32, "fire", "Ignition!");
+console.log(fireHero);
+fireHero.motto();
