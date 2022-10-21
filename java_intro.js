@@ -532,3 +532,458 @@ function heroFactory(name, age, energySource, catchPhrase) {
 const fireHero = heroFactory("torch", 32, "fire", "Ignition!");
 console.log(fireHero);
 fireHero.motto();
+
+//Destructured Assignment
+const vampire = {
+  name: "Alucard",
+  residence: "Unknown",
+  preferences: {
+    day: "hide",
+    night: "hunt",
+    motto() {
+      "I come!";
+    },
+  },
+};
+
+//const residence = vampire.residence;
+const { preferences } = vampire;
+console.log(preferences);
+
+preferences.motto;
+
+//Object Keys
+console.log(Object.keys(vampire));
+console.log(Object.keys(vampire.preferences));
+console.log(Object.entries(vampire));
+
+const newVampire = Object.entries(
+  { color: "blue", power: "big", name: "olliver" },
+  vampire
+);
+
+console.log(newVampire);
+
+//More for testing
+const car = {
+  numDoors: 4,
+  isDirty: true,
+  color: "red",
+};
+
+for (let key in car) {
+  console.log(key);
+}
+
+//Functions as data
+function thisIsALongFunctionOnPurpose() {
+  console.log("Yeah on purpose");
+}
+
+thisIsALongFunctionOnPurpose();
+
+const shortHand = thisIsALongFunctionOnPurpose;
+shortHand();
+console.log(shortHand.name);
+
+//Functions as parameters
+function addTwo(num) {
+  return num + 2;
+}
+
+console.log(addTwo(3));
+
+/*
+function checkConsistentOutput(func, val) {
+  let checkA = val + 2;
+  let checkB = func(val);
+  if (checkA === checkB) {
+    return func(val);
+  } else {
+    ("inconsistent results");
+  }
+}
+
+checkConsistentOutput();
+*/
+
+//Iterators
+function plusTen(num) {
+  return num + 5;
+}
+let f = plusTen;
+
+console.log(plusTen(4));
+console.log(f(5));
+
+//Callbacks functions
+function isEven(n) {
+  return n % 2 === 0;
+}
+
+console.log(isEven(1));
+
+function printMsg(evenFunc, num) {
+  const isNumEven = evenFunc(num);
+  console.log(`The number ${num} is an even number: ${isNumEven}`);
+}
+
+printMsg(isEven, 5);
+
+//forEach() iterator
+const fruits = ["mango", "apple", "pineapple", "peach"];
+
+function printFruits(fruits) {
+  console.log(`I want to eat ${fruits}`);
+}
+
+fruits.forEach(printFruits);
+
+//forEach() iterator extra
+const groceries = ["brown sugar", "hat", "tiolet paper", "sodas"];
+groceries.forEach(function (groceryItem) {
+  console.log(`I need to buy${groceryItem}`);
+});
+
+//map() method
+const bigNums = [1, 2, 3, 4, 5].map(function (number) {
+  return number * 10;
+});
+
+console.log(bigNums);
+
+const birds = ["raven", "crow", "pigeon", "albatross", "parrot"];
+
+const secretMessage = birds.map((bird) => bird[1]);
+
+console.log(secretMessage.join(" "));
+
+//filter() method
+const words = ["chair", "music", "pillow", "brick", "pen", "door"];
+
+const shortWords = words.filter(function (word) {
+  if (word.length < 6) {
+    return true;
+  }
+});
+
+console.log(shortWords);
+
+//findIndex() method
+const jumbledNums = [123, 25, 78, 5, 9];
+
+const lessThanTen = jumbledNums.findIndex(function (num) {
+  if (num < 10) {
+    return true;
+  }
+});
+
+console.log(lessThanTen);
+/*The output is 3 because it is counting the indecies so the 
+  answer would be 5 since it is the first number below 10
+*/
+
+/*
+const animals = [
+  "hippo",
+  "tiger",
+  "lion",
+  "seal",
+  "cheetah",
+  "monkey",
+  "salamander",
+  "elephant",
+];
+
+const foundAnimal = animals.findIndex(function (animal) {
+  if (animal === "elephant") {
+    return true;
+  }
+});
+
+const startsWithS = animals.findIndex(function (sAnimal) {
+  if (sAnimal[0] === "s") {
+    return true;
+  }
+});
+*/
+
+//The .reduce() method
+
+const reduceNumbers = [1, 2, 3, 4, 5];
+
+const summedNums = reduceNumbers.reduce(function (
+  accumulator,
+  currentValue
+) {});
+
+/*
+const newNumbers = [1, 3, 5, 7];
+
+const newSum = newNumbers.reduce((accumulator, currentValue) => {
+  console.log('The value of accumulator: ', accumulator);
+  console.log('The value of currentValue: ', currentValue);
+  return accumulator + currentValue;
+}, 10);
+
+console.log(newSum);
+ */
+
+//The some() method  //Checks if at least one element in the array passes the test provided by the function
+const someArray = [1, 3, 3, 3, 5];
+
+//checks if the element is even
+function even(element) {
+  if (element % 2 === 0) {
+    return true;
+  }
+}
+
+console.log(someArray.some(even)); //outputs true
+
+//The every() method
+const everyArray = [1, 2, 3, 4, 5];
+
+function every(element) {
+  if (element < 6) {
+    return true;
+  }
+}
+
+console.log(everyArray.every(every));
+
+//Error Test
+const GPA_BENCHMARK = 3.5;
+let students = [
+  1,
+  {
+    name: "Egill Vignission",
+    gpa: 3.4,
+  },
+  2,
+  {
+    name: "Bianca Pargas",
+    gpa: 3.8,
+  },
+  3,
+  {
+    name: "Aisling O'Sullivan",
+    gpa: 3.4,
+  },
+  4,
+  {
+    name: "Sameer Fares",
+    gpa: 3.9,
+  },
+];
+
+let honorRoll = students.filter(function (grade) {
+  if (grade.gpa >= GPA_BENCHMARK) {
+    return true;
+  }
+});
+
+console.log(honorRoll);
+
+//Free response error test
+let instrument = "violin";
+function setInstrument(instr) {
+  let instrument = instr;
+}
+console.log(instrument);
+
+//Run through this later
+function capitalizeASingleWord(word) {
+  console.log(word);
+
+  if (word.match(" ")) {
+    console.log("Word value inside of if statement: " + word);
+    return null;
+  }
+
+  let firstLetter = word.charAt(0);
+  const restOfWord = word.slice(1);
+
+  firstLetter = firstLetter.toUpperCase();
+
+  return firstLetter + restOfWord;
+}
+
+/* // Should return "Hey"
+console.log(
+  "capitalizeASingleWord('hey') returns: " + capitalizeASingleWord("hey")
+);
+
+// Should return null
+console.log(
+  "capitalizeASingleWord('hey ho') returns: " + capitalizeASingleWord("hey ho")
+);
+*/
+
+//match
+let text = "there is a house in new orleans";
+console.log(text.match("lean"));
+
+//charAt()
+let textChar = " there is a house in new orleans ";
+const indexChar = 4;
+console.log(
+  `the character at index ${indexChar} is ${textChar.charAt(indexChar)}`
+);
+
+//Debugging with console.log
+// Returns the string whose first letter is later in the alphabet. If both first letters are equal, returns null.
+/*
+function getLaterFirstLetter(string1, string2) {
+  const firstLetter1 = string1.charAt(1);
+  const firstLetter2 = string2.charAt(1);
+
+  if (firstLetter1 === firstLetter2) {
+    return null;
+  } else if (firstLetter1 > firstLetter2) {
+    return string2;
+  } else {
+    return string1;
+  }
+}
+
+
+// Should return "blueberry"
+console.log(
+  "getLaterFirstLetter('avocado', 'blueberry') returns: " +
+    getLaterFirstLetter("avocado", "blueberry")
+);
+
+// Should return "zebra"
+console.log(
+  "getLaterFirstLetter('zebra', 'aardvark') returns : " +
+    getLaterFirstLetter("zebra", "aardvark")
+);
+
+// Should return null
+console.log(
+  "getLaterFirstLetter('astro', 'afar') returns: " +
+    getLaterFirstLetter("astro", "afar")
+);
+*/
+
+//testing
+function getLaterFirstLetter(string1, string2) {
+  const firstLetter1 = string1.charAt(0);
+  const firstLetter2 = string2.charAt(0);
+
+  if (firstLetter1 === firstLetter2) {
+    return null;
+  } else if (firstLetter1 > firstLetter2) {
+    return string1;
+  } else {
+    return string2;
+  }
+}
+
+// Should return "blueberry"
+console.log(
+  //"getLaterFirstLetter('avocado', 'blueberry') returns: " +
+  getLaterFirstLetter("avocado", "blueberry")
+);
+
+// Should return "zebra"
+console.log(
+  "getLaterFirstLetter('zebra', 'aardvark') returns : " +
+    getLaterFirstLetter("zebra", "aardvark")
+);
+
+function letterTest(stringA, stringB) {
+  const oneLetter = stringA.charAt(0);
+  const twoLetter = stringB.charAt(0);
+
+  if (oneLetter === twoLetter) {
+    return null;
+  } else if (oneLetter > twoLetter) {
+    return stringA;
+  } else {
+    return stringB;
+  }
+}
+
+console.log(`letterTest return ${letterTest("apple", "avocado")}`);
+console.log(`letterTest return ${letterTest("apple", "banana")}`);
+console.log(`letterTest return ${letterTest("cucumber", "avocado")}`);
+
+//repeat() testing
+function doubleString(string) {
+  return string.repeat(2);
+}
+
+console.log(doubleString("hat "));
+
+//documentation testing
+function containsCake(string) {
+  if (string.match("cake")) {
+    return true;
+  } else {
+    return false;
+  }
+}
+let cakeTest = "this sentence contains cake";
+console.log(containsCake(cakeTest));
+
+//string min/max testing
+/* function isStringPerfectLength(string, minLength, maxLength {
+  const stringLength = string.length;
+  
+  if (stringLenth > minLength) {
+    return false;
+  } else if (stringLenth < maxLength) {
+    return false;
+  } else {
+    return true;
+  }
+} */
+
+function testStringLength(string, minLength, maxLength) {
+  const stringLength = string.length;
+
+  if (stringLength < minLength) {
+    return false;
+  } else if (stringLength > maxLength) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+console.log(testStringLength("pare", 3, 5));
+
+//reverseArray() - reverse method
+/*function reverseArray(string) {
+  return string.reverse();
+}
+
+let sentenceReverse = ["I", "do", "not", "want", "to", "go"];
+
+console.log(reverseArray(sentenceReverse));
+
+let a = [3, 2, 1];
+console.log(a.reverse());
+
+let arrayTest = ["one", "two", "three"];
+console.log(arrayTest.reverse());
+*/
+
+//reverseArray() - non-reverse method
+/* et arrayTest = ["one", "two", "three"];
+
+let newArrayTest = "";
+
+function reverseArray(array) {
+  for (let i = newArrayTest.length - 1; i >= 0; i--) {
+    newArrayTest += arrayTest[i];
+  }
+}
+
+console.log(reverseArray(newArrayTest)); */
+
+//Reversing an array out-of-place
+let array1 = ["one", "two", "three", "four", "five"];
+let newArray = "";

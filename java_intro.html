@@ -413,6 +413,19 @@
         for (let tree = 1;tree < 5; tree++){
           console.log(tree);
         }
+
+        //Callback function extra
+        function greeting(name){
+          alert(`Hello, ${name}`)
+        }
+        greeting("Jack");
+
+        function programUserInput(callback) {
+          const name = prompt('Please enter your name.');
+          callback(name);
+        }
+
+        processUserInput(greeting);
       </script>
     </div>
   </body>
