@@ -984,6 +984,52 @@ function reverseArray(array) {
 
 console.log(reverseArray(newArrayTest)); */
 
-//Reversing an array out-of-place
+//Reversing array without reverse()
 let array1 = ["one", "two", "three", "four", "five"];
-let newArray = "";
+function reverseArray1(array) {
+  let newReverseArray = [];
+  for (let i = 0; i < array.length; i++) {
+    newReverseArray[i] = array[array.length - i - 1];
+  }
+  return newReverseArray;
+}
+
+console.log(reverseArray1(array1));
+
+//greetAliens()
+let aliens = ["One", "Two", "Three", "Four"];
+
+//greetAliens using the forEach method
+/*
+aliens.forEach(function (alienGreeting) {
+  console.log(`I greet you ${alienGreeting}`);
+});
+*/
+
+function greetAliens(array) {
+  for (let index = 0; index < array.length; index++) {
+    console.log(`We greet you ${array[index]}!`);
+  }
+}
+
+greetAliens(aliens);
+
+//convertToBaby()
+const babyAnimals = ["panda", "turtle", "giraffe", "hippo"];
+
+function makeBabyAnimalList(array) {
+  const babyArray = [];
+  for (let index = 0; index < array.length; index++) {
+    babyArray.push("baby " + array[1]);
+  }
+  return babyArray;
+}
+
+console.log(makeBabyAnimalList(babyAnimals));
+
+/* map() test
+const getBabyAnimalList = babyAnimals.map(function (member) {
+  return member + ` are here to play`;
+});
+console.log(getBabyAnimalList);
+*/
