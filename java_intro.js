@@ -1033,3 +1033,93 @@ const getBabyAnimalList = babyAnimals.map(function (member) {
 });
 console.log(getBabyAnimalList);
 */
+
+//Fix the broken code!  //CHange i to another letter in 'inner loop'
+/* const numbers = [5, 3, 9, 30];
+
+const smallestPowerOfTwo = (arr) => {
+  let results = [];
+  // The 'outer' for loop - loops through each element in the array
+  for (let i = 0; i < arr.length; i++) {
+    number = arr[i];
+
+    // The 'inner' while loop - searches for smallest power of 2 greater than the given number
+    i = 1;
+    while (i < number) {
+      i = i * 2;
+    }
+    results.push(i);
+  }
+  return results;
+};
+
+console.log(smallestPowerOfTwo(numbers));
+// Should print the returned array [ 8, 4, 16, 32 ] instead prints the returned array [8] */
+
+//decline() and accept()
+const veggies = ["broccoli", "spinach", "cauliflower", "broccoflower"];
+
+const politelyDecline = (veg) => {
+  console.log("No " + veg + " please. I will have pizza with extra cheese.");
+};
+
+//THIS IS NOT ACCEPTED BY THE PROGRAM
+/*function declineEverything(array) {
+  array.forEach(function (veg) {
+    politelyDecline(veg);
+  });
+}
+
+declineEverything(veggies);
+*/
+
+//Hopefully this one will - direct influence on politelyDecline
+function declineEverything(array) {
+  array.forEach(politelyDecline);
+}
+declineEverything(veggies);
+
+//Worked but is not being accepted
+/*veggies.forEach(function (vegAccept) {
+  console.log(`Ok, I guess I will eat some ${vegAccept}`);
+}); */
+
+function acceptEverything(array) {
+  array.forEach(function (everything) {
+    console.log(`Ok, I guess I will eat some ${everything}`);
+  });
+}
+acceptEverything(veggies);
+
+//squareNums()
+const numbersToSquare = [2, 7, 9, 171, 52, 33, 14];
+
+const toSquare = (num) => num * num;
+/* function toSquare(num) {
+  num * num;
+} */
+
+const squareNums = (arr) => arr.map(toSquare);
+/*function squareNums(arr) {
+  arr.map(toSquare);
+}*/
+
+console.log(squareNums(numbersToSquare));
+
+/*
+// Using an anonymous function:
+const squareNums = arr => arr.map(e => e * e)
+
+// As a function declaration plus using our named function:
+function squareNums(arr) {
+    return arr.map(toSquare)
+}
+*/
+//Adds to 55 1 - 10
+let max = 0,
+  count = 1;
+while (count <= 10) {
+  max += count;
+  count += 1;
+}
+console.log(max);
