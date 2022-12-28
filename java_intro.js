@@ -1123,3 +1123,191 @@ while (count <= 10) {
   count += 1;
 }
 console.log(max);
+
+//
+
+function shoutGreetings(arr) {
+  const newArr = arr.map((word) => word.toUpperCase() + "!");
+  return newArr;
+}
+
+/*
+function shoutGreetings(arr) {
+  const newWords = arr.map((word) => word.toUpperCase() + "!");
+  return newWords;
+}
+*/
+//const shoutGreetings = (arr) => arr.map((word) => word.toUpperCase() + "!");
+
+const greetings = ["hello", "hi", "heya", "oi", "hey", "yo"];
+
+console.log(shoutGreetings(greetings));
+
+//sortYears()
+const years = [1970, 1999, 1951, 1982, 1963, 2011, 2018, 1922];
+
+function sortYear(param) {
+  return param.sort().reverse();
+}
+
+console.log(sortYear(years));
+
+//justCoolStuff()
+let arr1 = ["this", "not this", "nor this"];
+let arr2 = ["thing 1", "thing 2", "this"];
+
+const arrayMix = (firstArray, secondArray) =>
+  firstArray.filter((item) => secondArray.includes(item));
+console.log(arrayMix(arr1, arr2));
+
+//
+let colorFilter = ["one", "two", "three", "four"];
+const resultsFilter = colorFilter.filter((word) => word.length > 4);
+console.log(resultsFilter);
+
+//
+const justCoolStuff = (firstArray, secondArray) =>
+  firstArray.filter((item) => secondArray.includes(item));
+
+/*
+// As a function declaration AND using named function w/ a loop:
+function justCoolStuff(firstArray, secondArray) {
+      function isInSecondArray(item){
+            for(let i = 0; i<secondArray.length; i++){
+                  if (secondArray[i] === item){
+                        return true
+                  }
+            }
+            return false 
+      }
+      return firstArray.filter(isInSecondArray)
+}
+*/
+
+const coolStuff = [
+  "gameboys",
+  "skateboards",
+  "backwards hats",
+  "fruit-by-the-foot",
+  "pogs",
+  "my room",
+  "temporary tattoos",
+];
+
+const myStuff = [
+  "rules",
+  "fruit-by-the-foot",
+  "wedgies",
+  "sweaters",
+  "skateboards",
+  "family-night",
+  "my room",
+  "braces",
+  "the information superhighway",
+];
+
+console.log(justCoolStuff(myStuff, coolStuff));
+
+//isTheDinnerVegan
+const dinner = [
+  { name: "hamburger", source: "meat" },
+  { name: "cheese", source: "dairy" },
+  { name: "ketchup", source: "plant" },
+  { name: "bun", source: "plant" },
+  { name: "dessert twinkies", source: "unknown" },
+];
+const isTheDinnerVegan = (item) =>
+  item.every((food) => food.source === "plant");
+
+console.log(isTheDinnerVegan(dinner));
+
+//sortSpeciesByTeeth
+const speciesArray = [
+  { speciesName: "shark", numTeeth: 50 },
+  { speciesName: "dog", numTeeth: 42 },
+  { speciesName: "alligator", numTeeth: 80 },
+  { speciesName: "human", numTeeth: 32 },
+];
+
+const sortSpeciesByTeeth = (arr) =>
+  arr.sort(
+    (speciesObj1, speciesObj2) => speciesObj1.numTeeth > speciesObj2.numTeeth
+  );
+
+console.log(sortSpeciesByTeeth(speciesArray));
+
+//findMyKeys
+const randomStuff = [
+  "credit card",
+  "screwdriver",
+  "receipt",
+  "gum",
+  "keys",
+  "used gum",
+  "plastic spoon",
+];
+
+function findMyKeys(params) {
+  let newParams;
+  if ((newParams = params.indexOf("keys"))) {
+    return newParams;
+  } else {
+    return -1;
+  }
+}
+
+console.log(findMyKeys(randomStuff));
+
+//dogFactory
+// Final solution:
+/*
+// Solution to checkpoint 1:
+const dogFactory = (name, breed, weight) => {
+    return {
+          name: name,
+          breed: breed,
+          weight: weight
+    }
+}
+
+// Solution to checkpoint 2:
+const dogFactory = (name, breed, weight) => {
+    return {
+          _name: name,
+          _breed: breed,
+          _weight: weight,
+          get name() {
+                return this._name;
+          },
+          set name(newName) {
+                this._name = newName;
+          },
+          get breed() {
+                return this._breed;
+          },
+          set breed(newBreed) {
+                this._breed = newBreed;
+          },
+          get weight() {
+                return this._weight;
+          },
+          set weight(newWeight) {
+                this._weight = newWeight;
+          }
+    }
+}
+
+*/
+
+//Factorialize
+function factorialize(num) {
+  if (num === 0 || num === 1) {
+    return 1;
+  }
+  for (let index = num - 1; index >= 1; index--) {
+    num = num * index;
+  }
+  return num;
+}
+
+console.log(factorialize(4));
