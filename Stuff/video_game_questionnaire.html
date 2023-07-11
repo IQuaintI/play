@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="/home/quaint/play/video_game_questionnaire.css"
+    />
+    <title>Video Game Questionnare</title>
+  </head>
+  <body>
+    <!--Header-->
+    <div class="header">
+      <h1 id="title">Video Game Questionnaire</h1>
+      <p id="description">Just some qustions about the hobby</p>
+    </div>
+    <!--Personal Information-->
+    <form id="survey-form">
+      <fieldset>
+        <legend>Tell us about yourself</legend>
+        <label id="name-label"
+          >Name
+          <input
+            id="name"
+            type="text"
+            placeholder="Name"
+            class="form-control"
+            required
+        /></label>
+        <label id="email-label"
+          >Email
+          <input
+            id="email"
+            type="email"
+            placeholder="Email"
+            class="form-control"
+            required
+        /></label>
+        <label id="number-label"
+          >Age
+          <input
+            id="number"
+            type="number"
+            min="0"
+            max="120"
+            class="form-control"
+            placeholder="Pick a Number"
+        /></label>
+        <!--Dropdown-->
+      </fieldset>
+      <fieldset>
+        <legend>How often do you play games?</legend>
+        <label
+          ><select id="dropdown">
+            <optgroup label="We won't tell">
+              <option>(select one)</option>
+              <option>I don't play games</option>
+              <option>I play here and there</option>
+              <option>I play at least once a week</option>
+              <options>I play everyday</options>
+              <option>I am a game</option>
+            </optgroup>
+          </select></label
+        >
+      </fieldset>
+      <!--Preorder radio-->
+      <fieldset>
+        <legend>Do you preorder games?</legend>
+        <label id="preorder-yes"
+          >Yes<input name="preorder" type="radio" value="radio"
+        /></label>
+        <label id="preorder-no"
+          >No<input name="preorder" type="radio" value="radio"
+        /></label>
+      </fieldset>
+      <!--Genre checkbox-->
+      <fieldset>
+        <legend>What is your favorite genre?</legend>
+        <div>
+          <label
+            ><input
+              type="checkbox"
+              value="RPG"
+              class="inline"
+            />Role-playing</label
+          >
+        </div>
+        <div>
+          <label
+            ><input
+              type="checkbox"
+              value="Horror"
+              class="inline"
+            />Horror</label
+          >
+          <label
+            ><input
+              type="checkbox"
+              value="Action"
+              class="inline"
+            />Action-Adventure</label
+          >
+        </div>
+        <div>
+          <label
+            ><input
+              type="checkbox"
+              value="Shooter"
+              class="inline"
+            />Shooter</label
+          >
+        </div>
+        <div>
+          <label
+            ><input
+              type="checkbox"
+              value="Strategy"
+              class="inline"
+            />Strategy</label
+          >
+        </div>
+        <div>
+          <label><input type="checkbox" value="MMO" class="inline" />MMO</label>
+        </div>
+        <div>
+          <label
+            ><input type="checkbox" value="MOBA" class="inline" />MOBA</label
+          >
+        </div>
+        <div>
+          <label
+            ><input
+              type="checkbox"
+              value="Puzzle"
+              class="inline"
+            />Puzzle/Party</label
+          >
+        </div>
+        <!--Genre textbox-->
+        <div>
+          <label>Other: <input type="text" placeholder="Do tell" /></label>
+        </div>
+      </fieldset>
+      <!--Comments textarea-->
+      <fieldset>
+        <legend>Comments</legend>
+        <textarea placeholder="Listen!"></textarea>
+      </fieldset>
+      <!--Submit button-->
+      <fieldset><button id="submit">Submit</button></fieldset>
+    </form>
+  </body>
+</html>

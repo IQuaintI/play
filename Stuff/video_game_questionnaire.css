@@ -1,0 +1,56 @@
+h1,
+p {
+  text-align: center;
+}
+
+label {
+  display: block;
+  padding-left: 20px;
+}
+
+form {
+  margin: 40px;
+  background-color: #cecece;
+  opacity: 0.9;
+  padding: 30px;
+}
+
+body {
+  background: url("/home/quaint/Downloads/3840x2160-px-gamers-gray-minimalism-SNES-video-games-1071948-wallhere.com.jpg")
+    no-repeat center center fixed;
+  background-size: cover;
+  font-size: 20px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.form-control {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+#dropdown {
+  height: 30px;
+  width: 100%;
+  border-radius: 5px;
+}
+
+textarea {
+  height: 100px;
+  width: 100%;
+  border-radius: 5px;
+}
+
+fieldset {
+  border: none;
+}
+
+button {
+  height: 30px;
+  width: 100%;
+  border-radius: 5px;
+  background-color: lightcoral;
+  border-color: lightcoral;
+}
