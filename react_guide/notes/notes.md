@@ -530,3 +530,166 @@ export default App
 
 In the above example, the `Extra content` text will be rendered on the page when the `/books` route is matched as opposed to just matching to the `/` route. (It will render on the `/books` route and all of its child routes).
 
+Another method for linking routes is to create a page that contains a link to the route
+
+```jsx
+import {Routes, Route} from "react-router-dom"
+import { BookList } from "./pages/BookList"
+import { Books } from "./pages/Book"
+import { NewBook } from "./pages/NewBook"
+import { BookLayout } from "./BookLayout"
+
+export function BookRoutes() {
+    return (
+        <>
+        <BookLayout />
+        <Routes>
+        <Route index element={<BookList />} />
+        <Route path = ":id" element={<Books />} />
+        <Route exact path = "new" element={<NewBook />} />
+        </Routes>
+        </>
+    )
+}
+```
+
+A `BookRoutes` component is created to contain the routes for the `/books` route.
+
+The routes that were being rendered in the `App` component are now rendered in the `BookRoutes` component.
+
+
+```jsx
+import { Routes, Route, Link } from "react-router-dom"
+import {Home} from "./pages/Home"
+import { NotFound } from "./pages/NotFound"
+import { BookRoutes } from "./BookRoutes"
+
+function App () {
+  return (
+    <>
+    <nav>
+      <ul>
+        <li><Link to = '/'>Home</Link></li>
+        <li><Link to = '/books'>Books</Link></li>
+        </ul>
+    </nav>
+    <Routes>
+      <Route exact path="/" element={<Home />} />
+      <Route path="/books/*" element= {<BookRoutes />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+    </>
+  )
+}
+
+export default App
+```
+
+<span style = "color:red">Warning: If you are linking to a route that is not nested within the parent route, the `*` (asterisk/wildcard) must be used to match all of the child routes as demonstrated above!</span>
+
+---
+
+### useRoutes Hook
+
+The `useRoutes` hook can be used to create a custom router written in JavaScript.
+
+It is imported from the `react-router-dom` library.
+
+```jsx
+import { useRoutes } from "react-router-dom"
+```
+
+The `useRoutes` hook takes in an array of route objects and returns a `Routes` component.
+
+```jsx
+function App () {
+  let element = useRoutes([
+    {
+      path: '/',
+      element: <Home />
+    },
+    {
+      path: '/books/*',
+      element: <BookRoutes />
+    },
+  ])
+}
+```
+
+It can then be rendered into another component via its `element` property.
+
+```jsx
+{element}
+```
+
+This is just another way of doing routes in React.
+
+---
+
+### Link Component
+
+Link tags can have more than the `to` property.
+
+One such property is the `replace` property.
+
+```jsx
+<Link to = '/books' replace>Books</Link>
+```
+
+The `replace` property is used to control the behavior of the navigation when the link is clicked. It replaces the current entry in the history stack instead of adding a new one.
+
+By default, when you click a link created by the `Link` component, the router will add a new entry to the history stack. This is so that when you click the back button, you can go back to the previous page.
+
+However, with the `replace` property the current entry in the history stack is replaced with the new one. This means that when you click the back button, you will not be able to go back to the previous page. 
+
+It is not that useful outside of a few edge cases such as not wanting a user to back into a login page after they have logged in.
+
+Another property is the `reloadDocument` property.
+
+```jsx
+<Link to = '/books' reloadDocument>Books</Link>
+```
+
+This one is pretty straightforward. It reloads the document when the link is clicked. 
+
+React typically only updates the parts of the DOM that have changed. This is why it is so fast. However, sometimes you want to reload the entire document. This is where the `reloadDocument` property comes in.
+
+The `state` property can also be used with the `Link` component.
+
+```jsx
+<Link to = '/books' state = {{from: 'home'}}>Books</Link>
+```
+
+### NavLink Component
+
+The `NavLink` component is similar to the `Link` component. However, it allows for greater customization of the link.
+
+The component has to be imported from the `react-router-dom` library.
+
+```jsx
+import { NavLink } from "react-router-dom"
+```
+
+The `NavLink` component can take a style object as a prop.
+
+```jsx
+          <NavLink to = '/' style = {({isActive}) => {return isActive ? {color: 'red'} : {}}} >
+          {({isActive}) => {return isActive ? 'Active Home' : 'Not Home'}}
+    
+          </NavLink></li>
+```
+
+The `isActive` property is a boolean that is true when the link is active and false when it is not.
+
+<span style = "color:yellow">Note: If you are using a tertiary operator, you must return an empty object if the link is not active. You must also delete the hard-coded text otherwise the boolean will not be considered.</span>
+
+The above is quite a mouthful so it's good to know that the `NavLink` component is defaulted to being `active` when the link is active and `inactive` when it is not.
+
+Therefore, you do not need to declare if it is active. 
+
+```jsx
+          <NavLink to = '/' style = {({isActive}) => {return isActive ? {color: 'red'} : {}}} >
+          Active Home
+    
+          </NavLink></li>
+```
