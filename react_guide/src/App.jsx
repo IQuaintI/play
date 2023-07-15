@@ -1,10 +1,12 @@
-import { Routes, Route, Link,NavLink } from "react-router-dom"
+import { Routes, Route, Link,NavLink, useLocation } from "react-router-dom"
 import {Home} from "./pages/Home"
 import { NotFound } from "./pages/NotFound"
 import { BookRoutes } from "./BookRoutes"
 import "./styles.css"
 
 function App () {
+  const location = useLocation()
+  console.log(location)
   return (
     <>
     <nav>
@@ -15,6 +17,7 @@ function App () {
         <li><Link to = '/books'>Books</Link></li>
         </ul>
     </nav>
+    {location.state}
     <Routes>
       <Route exact path="/" element={<Home />} />
       <Route path="/books/*" element= {<BookRoutes />} />

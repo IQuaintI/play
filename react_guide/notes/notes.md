@@ -688,8 +688,294 @@ The above is quite a mouthful so it's good to know that the `NavLink` component 
 Therefore, you do not need to declare if it is active. 
 
 ```jsx
-          <NavLink to = '/' style = {({isActive}) => {return isActive ? {color: 'red'} : {}}} >
-          Active Home
-    
-          </NavLink></li>
+    <nav>
+      <ul>
+        <li>
+          <NavLink to = '/'>Home</NavLink>
+        </li>
+        <li><Link to = '/books'>Books</Link></li>
+        </ul>
+    </nav>
 ```
+
+If you do not want to make the CSS extend to child routes, the `end` property can be used.
+
+```jsx
+    <nav>
+      <ul>
+        <li>
+          <NavLink to = '/' end>Home</NavLink>
+        </li>
+        <li><Link to = '/books'>Books</Link></li>
+        </ul>
+    </nav>
+```
+
+That way the CSS will only apply to the `/` route and not the child routes.
+
+### Navigate Component
+
+The `Navigate` component is used to instantly redirect to a new location.
+
+For example, the `NotFound` component can be used to redirect to the home page.
+
+```jsx
+import { Navigate } from "react-router-dom"
+
+export function NotFound() {
+    return <Navigate to = '/' />
+}
+```
+
+This way when an invalid url is entered, the user will be redirected to the home page.
+
+### useNavigate Hook
+
+If you want to navigate people based on form-submission or some other event, you can use the `useNavigate` hook.
+
+```jsx
+import { useEffect } from "react";
+import { useNavigate} from "react-router-dom";
+
+
+export function NotFound() {
+    const navigate = useNavigate()
+
+    useEffect(() => { 
+        setTimeout(() => {
+            navigate('/')}, 1000) 
+    }, [navigate])
+    return (<h1>Not Found</h1>)
+}
+```
+
+The `useNavigate` hook allows for programmatic navigation. 
+
+Programmatic navigation means that the code does the navigation instead of the user having to click on a link.
+
+The above looks confusing but let's break it down. 
+
+It reads that once a page is reached that is not found, the user will be redirected to the home page after 1 second.
+
+The `useEffect` hook is a hook that allows you to perform side effects in your components. It takes two arguments: a function and an array of dependencies.
+
+The syntax is as follows:
+
+```jsx
+useEffect(() => {
+  // code to run
+}, [dependencies]);
+```
+
+The dependencies are optional. If you do not specify any dependencies, the function will run every time the component is rendered.
+
+In the above example, the dependency is the `navigate` variable. This means that the function will only run when the `navigate` variable changes.
+
+The `navigate` variable is set to the `useNavigate` hook. 
+
+The `useNavigate` syntax looks like this:
+
+```jsx
+const navigate = useNavigate()
+```
+
+This `const` does not have to be set to navigate but it is good practice to do so.
+
+### Search Parameters
+
+We can search for things by using an input field.
+
+```jsx
+import { Link, Outlet} from "react-router-dom"
+import { useState } from "react"
+
+export function BookLayout() {
+    const [number, setNumber] = useState('')
+    return (
+    <>
+    <h1>Book List</h1>
+    <Link to = '/books/1'>Book 1</Link>
+    <br /> 
+    <Link to = '/books/2'>Book 2</Link>
+    <br /> 
+    <Link to = {`/books/${number}`}>Book {number}</Link>
+    <br /> 
+    <Link to = '/books/new'>New Book</Link>
+    <Outlet context={ {hello: 'World'} }/>
+    <input type="number" value = {number} onChange={(e) => setNumber(e.target.value)} />
+    </>
+    )
+}
+```
+
+The `useState` hook is used to create a state variable called `number` and a function called `setNumber` that is used to update the state variable.
+
+The `number` variable is set to an empty string (that will be replace once the user inputs a number).
+
+The `input` tag is used to create an input field. 
+
+It takes a `type` prop which is set to `number` and a `value` prop which is set to the `number` variable which is an empty string.
+
+The `onChange` prop is used to update the `number` variable when the user inputs a number.
+
+The `e` is the event object (it can be named anything but `e` is the convention).
+
+The `e.target.value` is the value of the input field.
+
+The arrow function uses a `setNumber` function to update the `number` variable to the value of the input field.
+
+The `setNumber` is the useState function that is used to update the state variable.
+
+There is also a link that is set to the `number` variable.
+
+```jsx
+<Link to = {`/books/${number}`}>Book {number}</Link>
+```
+
+Whatever number is inputted into the input field will be the number that is displayed on the link.
+
+### useSearchParams Hook
+
+The `useSearchParams` hook is used to get the search parameters from the url.
+
+The `useSearchParams` hook is imported from the `react-router-dom` library.
+
+```jsx
+import { useSearchParams } from "react-router-dom"
+```
+
+The `useSearchParams` hook takes an object as an argument and returns an array with two values: the search parameters and a function to update the search parameters.
+
+```jsx
+const [searchParams, setSearchParams] = useSearchParams({n:3})
+```
+
+This is similar to the `useState` hook, but unlike the useState hook the `useSearchParams` hook remembers the search parameters even when the page is refreshed.
+
+```jsx
+import { Link, Outlet, useSearchParams} from "react-router-dom"
+
+export function BookLayout() {
+    const [searchParams, setSearchParams] = useSearchParams({n:3})
+    const number = searchParams.get('n')
+    return (
+    <>
+    <h1>Book List</h1>
+    <Link to = '/books/1'>Book 1</Link>
+    <br /> 
+    <Link to = '/books/2'>Book 2</Link>
+    <br /> 
+    <Link to = {`/books/${number}`}>Book {number}</Link> 
+    <br /> 
+    <Link to = '/books/new'>New Book</Link>
+    <Outlet context={ {hello: 'World'} }/>
+    <input type="number" value = {number} onChange={(e) => setSearchParams({n: e.target.value})} /> 
+    </>
+    )
+}
+```
+
+The `n` represents the number of the book (it could be any letter or word). For testing purposes it is set to 3.
+
+<span style = 'color:yellow'>Note: Variables need to be set in brackets when using the `useSearchParams` hook.</span>
+
+The `number` variable is set to the `n` search parameter.
+
+```jsx
+const number = searchParams.get('n')
+```
+
+This means that whatever number `n` is so is the `number` variable.
+
+The `get` method is used to get the value of the search parameter.
+
+Lastly, in the input field the `setSearchParams` function is used to update the `n` search parameter.
+
+### Navigation State
+
+The `state` property can be used to pass data to the next page.
+
+```jsx
+import { Routes, Route, Link,NavLink, useLocation } from "react-router-dom"
+import {Home} from "./pages/Home"
+import { NotFound } from "./pages/NotFound"
+import { BookRoutes } from "./BookRoutes"
+import "./styles.css"
+
+function App () {
+  const location = useLocation()
+  console.log(location)
+  return (
+    <>
+    <nav>
+      <ul>
+        <li>
+          <NavLink to = '/' state = 'Hi'>Home</NavLink>
+        </li>
+        <li><Link to = '/books'>Books</Link></li>
+        </ul>
+    </nav>
+    {location.state}
+    <Routes>
+      <Route exact path="/" element={<Home />} />
+      <Route path="/books/*" element= {<BookRoutes />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+    </>
+  )
+}
+
+export default App
+```
+
+The `console.log(location)` is used to log the location of the current page. 
+
+States are ways for components to pass data to each other.
+
+The `useLocation` hook is used to get information about the current URL. 
+
+In the console, the object can be viewed and a few properties can be seen:
+
+**Hash**
+
+The `hash` property is used to get the hash portion of the URL.
+
+If you added a hash to the URL, it would be displayed here such as `http://localhost:3000/#/books`
+
+The `#/books` would be displayed in the hash. 
+
+**Key** 
+
+The `key` property is used to get the key of the current location.
+
+(A key is something that is used to identify a specific object.)
+
+**Pathname**
+
+The `pathname` property is used to get the path portion of the URL.
+
+The page that you are on is displayed here such as `http://localhost:3000/books`
+
+The pathname would be `/books`.
+
+**Search**
+
+The `search` property is used to get the search portion of the URL.
+
+The search portion is the part of the URL that comes after the `?` symbol.
+
+For example, if you wanted to search for a book, you could type in `http://localhost:3000/books?search=book`
+
+The `?search=book` would be displayed in the search property.
+
+**State**
+
+The `state` property is used to get the state of the current location.
+
+The state is the data that is passed to the next page.
+
+In this case, the state is set to `Hi` which is displayed on the page.
+
+--- 
+
+**_Congratulations for making it this far! You have learned a lot about React Router._**
