@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../styles/navbar.css";
+import { CSSTransition } from "react-transition-group";
 
 export function Navbar(props) {
   return (
@@ -24,6 +25,9 @@ export function NavItem(props) {
 }
 
 export function DropdownMenu() {
+
+  const [activeMenu, setActiveMenu] = useState('main'); 
+
   function DropdownItem(props) {
     return (
       <a href="#" className="menu-item">
@@ -35,8 +39,16 @@ export function DropdownMenu() {
   }
   return (
     <div className="dropdown">
-      <DropdownItem leftIcon="👍" rightIcon="👎">
+      <DropdownItem leftIcon="👍" rightIcon=">">
         My Profile
+      </DropdownItem>
+
+      <DropdownItem leftIcon="👍" rightIcon=">">
+        Settings
+      </DropdownItem>
+
+      <DropdownItem leftIcon="👍" rightIcon=">">
+        Logout
       </DropdownItem>
     </div>
   );
