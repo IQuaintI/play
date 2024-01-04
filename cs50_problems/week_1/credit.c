@@ -1,25 +1,23 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-bool isValid(long num);
-int countDigits(long num);
+int countDigits(int num);
+bool isValid(int num);
 
 int main(void)
 {
-    // 378282246310005
-    char getNumber[16];
-    printf("Enter a credit card number: ");
-    scanf("%s", getNumber);
-
-    if (isValid(getNumber))
-        printf("%d is valid according to Luhn's algorithm.\n", getNumber);
+    int number = 123456789;
+    if (isValid(number))
+        printf("%d is valid according to Luhn's algorithm.\n", number);
     else
-        printf("%d is not valid according to Luhn's algorithm.\n", getNumber);
+        printf("%d is not valid according to Luhn's algorithm.\n", number);
+
+    return 0;
 }
 
-int countDigits(long num)
+// Function to count the number of digits in an integer
+int countDigits(int num)
 {
-
     int count = 0;
     while (num != 0)
     {
@@ -29,7 +27,8 @@ int countDigits(long num)
     return count;
 }
 
-bool isValid(long num)
+// Function to check if a number is valid according to Luhn's algorithm
+bool isValid(int num)
 {
     int nDigits = countDigits(num);
     int sum = 0, isSecond = false;
