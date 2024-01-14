@@ -1,52 +1,68 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <string.h>
 
-int countDigits(int num);
-bool isValid(int num);
+bool isValid(const char *num);
+int getCardType(const char *num);
 
-int main(void)
-{
-    int number = 123456789;
-    if (isValid(number))
-        printf("%d is valid according to Luhn's algorithm.\n", number);
-    else
-        printf("%d is not valid according to Luhn's algorithm.\n", number);
+int main(void) {
+    char getNumber[20];  // Increased length to handle longer numbers
+    printf("Enter a credit card number: ");
+    scanf("%19s", getNumber);  // Limit input to prevent buffer overflow
 
-    return 0;
-}
-
-// Function to count the number of digits in an integer
-int countDigits(int num)
-{
-    int count = 0;
-    while (num != 0)
-    {
-        num /= 10; // Divide the number by 10
-        count++;
+    int cardType = getCardType(getNumber);
+    switch (cardType) {
+        case 1:
+            printf("Visa card detected.\n");
+            break;
+        case 2:
+            printf("MasterCard detected.\n");
+            break;
+        case 3:
+            printf("American Express card detected.\n");
+            break;
+        case 4:
+            printf("Discover card detected.\n");
+            break;
+        default:
+            printf("Card type unknown.\n");
     }
-    return count;
 }
 
-// Function to check if a number is valid according to Luhn's algorithm
-bool isValid(int num)
-{
-    int nDigits = countDigits(num);
+// Function to identify the type of card
+int getCardType(const char *num) {
+    if (num[0] == '4') {
+        return 1; // Visa
+    } else if (strncmp(num, "51", 2) == 0 || strncmp(num, "52", 2) == 0 || 
+               strncmp(num, "53", 2) == 0 || strncmp(num, "54", 2) == 0 || 
+               strncmp(num, "55", 2) == 0) {
+        return 2; // MasterCard
+    } else if (strncmp(num, "34", 2) == 0 || strncmp(num, "37", 2) == 0) {
+        return 3; // American Express
+    } else if (strncmp(num, "6011", 4) == 0 || (strncmp(num, "65", 2) == 0) ||
+               (strncmp(num, "644", 3) == 0 || strncmp(num, "645", 3) == 0 ||
+                strncmp(num, "646", 3) == 0 || strncmp(num, "647", 3) == 0 ||
+                strncmp(num, "648", 3) == 0 || strncmp(num, "649", 3) == 0)) {
+        return 4; // Discover
+    }
+    return 0; // Unknown type
+}
+
+// Function to check if the card is valid using Luhn's algorithm
+bool isValid(const char *num) {
+    int numDigits = strlen(num);
     int sum = 0, isSecond = false;
-    int currentDigit;
+    for (int i = numDigits - 1; i >= 0; i--) {
+        int digit = num[i] - '0';
 
-    while (num > 0)
-    {
-        currentDigit = num % 10; // Get the last digit
-
-        if (isSecond)
-        {
-            currentDigit *= 2;
-            if (currentDigit > 9)
-                currentDigit -= 9;
+        if (isSecond) {
+            digit *= 2;
+            if (digit > 9) {
+                digit -= 9;
+            }
         }
 
-        sum += currentDigit;
-        num /= 10; // Remove the last digit
+        sum += digit;
         isSecond = !isSecond;
     }
 
