@@ -1,0 +1,31 @@
+@mixin center {
+  display: grid;
+  place-items: center;
+  height: 20vh;
+  font-size: 5vh;
+}
+
+img {
+  width: 20%;
+  height: 20%;
+  object-fit: cover;
+}
+
+#header {
+  @include center;
+}
+
+#sidebar {
+  height: 70vh;
+  border: 1px solid black;
+}
+
+#recipes {
+  border: 1px solid black;
+  height: 70vh;
+  overflow-y: scroll;
+}
+
+#footer {
+  @include center;
+}
