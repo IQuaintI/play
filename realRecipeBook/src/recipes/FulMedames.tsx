@@ -2,15 +2,15 @@ import { Recipe } from "../components/Recipes";
 import Grid from "@mui/material/Grid"; // or '@mui/material/Grid'
 import "../css/RecipeOutline.scss";
 
-interface FishSoupProps {
+interface FulMedamesProps {
   recipe: Recipe;
 }
 
-function FishSoup({ recipe }: FishSoupProps) {
+function FulMedames({ recipe }: FulMedamesProps) {
   return (
     <Grid container rowSpacing={12} columnSpacing={{ sm: 5 }}>
       <Grid item sm={4} id="header">
-        <img src={recipe.image} alt="Fish Soup" />
+        <img src={recipe.image} alt="Ful Medames" />
       </Grid>
       <Grid item sm={4} id="ingredients">
         <h2>Ingredients</h2>
@@ -32,4 +32,4 @@ function FishSoup({ recipe }: FishSoupProps) {
   );
 }
 
-export default FishSoup;
+export default FulMedames;
