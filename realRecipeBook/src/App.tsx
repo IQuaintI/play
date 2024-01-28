@@ -1,23 +1,27 @@
+// Admin Imports
 import { useState } from "react";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
-import Grid from "@mui/material/Unstable_Grid2";
+import Grid from "@mui/material/Grid";
 import { Box } from "@mui/material";
 
-// Import other recipe components
+// Recipe Imports
 import FishSoup from "./recipes/FishSoup";
 import StrawberryRomanoff from "./recipes/StrawberryRomanoff";
 import FulMedames from "./recipes/FulMedames";
 import SpicyArrabiataPenne from "./recipes/SpicyArrabiataPenne";
+import LambPilaf from "./recipes/LambPilaf";
 
-//Import images
+// Images Imports
 import fishSoup from "./assets/fishSoup.jpg";
 import strawberryRomanoff from "./assets/strawberryRomanoff.jpg";
 import fulMedames from "./assets/fulMedames.jpg";
 import chocolateAvocadoMousse from "./assets/chocolateAvocadoMousse.jpg";
 import spicyArrabiataPenne from "./assets/spicyArrabiataPenne.jpg";
+import lambPilaf from "./assets/lambPilaf.jpg";
 
+// CSS Imports
 import "./css/App.scss";
 import ChocolateAvocadoMousse from "./recipes/ChocolateAvocadoMousse";
 
@@ -33,23 +37,22 @@ function App() {
     { id: 3, label: "Ful Medames" },
     { id: 4, label: "Chocolate Avocado Mousse" },
     { id: 5, label: "Spicy Arrabiata Penne" },
+    { id: 6, label: "Lamb Pilaf" },
   ];
 
   return (
-    <Grid container rowSpacing={12} columnSpacing={{ sm: 2 }}>
-      <Grid sm={12} id="header">
-        <Box
-          sx={{ borderBottom: 3, borderColor: "pink", p: 2, width: "170vh" }}
-        >
+    <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2 }}>
+      <Grid item xs={12} id="header">
+        <Box sx={{ borderBottom: 3, borderColor: "pink", p: 2, width: "100%" }}>
           <Header title="Real Recipe Book" />
         </Box>
       </Grid>
-      <Grid sm={3} id="sidebar">
-        <Box sx={{ borderRight: 1, height: "50vh" }}>
+      <Grid item xs={12} sm={3} id="sidebar">
+        <Box sx={{ borderRight: 1, height: "auto", minHeight: "50vh" }}>
           <Sidebar title="Recipes" items={items} onSelect={setSelectedItem} />
         </Box>
       </Grid>
-      <Grid sm={9} id="recipes">
+      <Grid item xs={12} sm={9} id="recipes">
         <>
           {selectedItem && selectedItem.label === "Fish Soup" && (
             <FishSoup
@@ -190,10 +193,43 @@ function App() {
               }}
             />
           )}
+          {selectedItem && selectedItem.label === "Lamb Pilaf" && (
+            <LambPilaf
+              recipe={{
+                image: lambPilaf,
+                ingredients: [
+                  "1 tablespoon olive oil",
+                  "1 pound ground lamb",
+                  "1 onion, chopped",
+                  "1 (14.5 ounce) can diced tomatoes",
+                  "1 cup uncooked white rice",
+                  "1 cup water",
+                  "1/2 cup raisins",
+                  "1/2 teaspoon ground cinnamon",
+                  "1/2 teaspoon ground cumin",
+                  "1/2 teaspoon ground coriander",
+                  "1/2 teaspoon ground turmeric",
+                  "1/2 teaspoon ground black pepper",
+                  "1/2 teaspoon salt",
+                  "1/2 cup pine nuts",
+                ],
+                instructions: [
+                  "Heat the olive oil in a large skillet over medium-high heat.",
+                  "Add the lamb and onion; cook and stir until the lamb is crumbly, evenly browned, and no longer pink.",
+                  "Drain and discard any excess grease.",
+                  "Stir in the tomatoes, rice, water, raisins, cinnamon, cumin, coriander, turmeric, pepper, and salt.",
+                  "Bring to a boil over high heat, then reduce heat to medium-low, cover, and simmer until the rice is tender, about 20 minutes.",
+                  "Meanwhile, place the pine nuts in a dry skillet over medium heat.",
+                  "Cook and stir until golden brown, then stir into the pilaf before serving.",
+                ],
+              }}
+            />
+          )}
         </>
       </Grid>
-      <Grid sm={12} id="footer">
-        <Box sx={{ borderTop: 3, borderColor: "pink", p: 2, width: "95vh" }}>
+      <Grid item xs={12} id="footer">
+        <Box sx={{ borderTop: 3, borderColor: "pink", p: 2, width: "100%" }}>
+          {" "}
           <Footer title="Information pulled from 'TheMealDB'" />
         </Box>
       </Grid>
