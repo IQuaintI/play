@@ -88,8 +88,9 @@ img {
   }
 
   #sidebar li {
-    width: 100%; // Full width sidebar items
+    width: 60%; // Adjust width
     margin-bottom: 2vh; // Adjust margin
+    cursor: pointer;
   }
 
   #recipes {
@@ -98,8 +99,7 @@ img {
   }
 
   img {
-    width: 100%; // Full width images
-    padding-top: 0; // Remove padding top
+    width: 90%; // Adjust width
   }
 
   .recipe-text {
